@@ -72,7 +72,7 @@ export function ActiveUnitsQualificationsCard({ canBeOpened = true, unit, childr
       showArrow={false}
       contentProps={{ sideOffset: 0, side: "bottom" }}
       pointerEvents
-      trigger={<span ref={hoverRef}>{children}</span>}
+      trigger={<div ref={hoverRef}>{children}</div>}
     >
       {state === "loading" ? (
         <Loader />

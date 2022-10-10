@@ -1,7 +1,7 @@
 import type { AssignedUnit, CombinedLeoUnit, EmsFdDeputy, Officer } from "@snailycad/types";
 import { isUnitCombined } from "@snailycad/utils";
 import { Draggable } from "components/shared/dnd/Draggable";
-import { Droppable } from "components/shared/dnd/Droppable";
+import { Droppable } from "@snailycad/ui";
 import { useActiveDispatchers } from "hooks/realtime/useActiveDispatchers";
 import { useGenerateCallsign } from "hooks/useGenerateCallsign";
 import { makeUnitName } from "lib/utils";
@@ -32,11 +32,11 @@ export function AssignedUnitsColumn({ handleAssignToCall, isDispatch, call }: Pr
 
   return (
     <Droppable
-      accepts={[DndActions.MoveUnitTo911CallOrIncident]}
+      // accepts={[DndActions.MoveUnitTo911CallOrIncident]}
       onDrop={(item: Officer | EmsFdDeputy | CombinedLeoUnit) =>
         void handleAssignToCall(call, item.id)
       }
-      canDrop={(item) => isDispatch && !call.assignedUnits.some((v) => v.unit?.id === item.id)}
+      isDisabled={(item) => isDispatch && !call.assignedUnits.some((v) => v.unit?.id === item.id)}
     >
       <div className="flex gap-2">
         {call.assignedUnits.length <= 0

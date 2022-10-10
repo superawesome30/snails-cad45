@@ -125,13 +125,13 @@ export default function DispatchDashboard(props: DispatchPageProps) {
       </UtilityPanel>
 
       <div id="dispatch">
-        <DndProvider id="dispatch">
-          <div className="flex flex-col mt-3 md:flex-row md:space-x-3">
-            <div className="w-full">
-              <ActiveOfficers initialOfficers={activeOfficers} />
-              <ActiveDeputies initialDeputies={activeDeputies} />
-            </div>
+        <div className="flex flex-col mt-3 md:flex-row md:space-x-3">
+          <div className="w-full">
+            <ActiveOfficers initialOfficers={activeOfficers} />
+            {/* <ActiveDeputies initialDeputies={activeDeputies} /> */}
           </div>
+        </div>
+        <DndProvider id="dispatch">
           <div className="mt-3">
             <ActiveCalls initialData={props.calls} />
             <ActiveBolos initialBolos={props.bolos} />

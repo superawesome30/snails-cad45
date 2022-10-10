@@ -15,7 +15,7 @@ import { useRouter } from "next/router";
 import { useTranslations } from "next-intl";
 import { useGenerateCallsign } from "hooks/useGenerateCallsign";
 import { makeUnitName } from "lib/utils";
-import { Draggable } from "components/shared/dnd/Draggable";
+import { Draggable } from "@snailycad/ui";
 import { DndActions } from "types/DndActions";
 import { useActiveDispatchers } from "hooks/realtime/useActiveDispatchers";
 import { classNames } from "lib/classNames";
@@ -107,14 +107,18 @@ export function OfficerColumn({ officer, nameAndCallsign, setTempUnit }: Props) 
       ]}
     >
       <span>
-        <Draggable canDrag={canDrag} type={DndActions.MoveUnitTo911CallOrIncident} item={officer}>
+        <Draggable
+          // isDisabled={!canDrag}
+          // type={DndActions.MoveUnitTo911CallOrIncident}
+          data={officer}
+        >
           {({ isDragging }) => (
-            <ActiveUnitsQualificationsCard canBeOpened={!isDragging} unit={officer}>
-              <span
-                className={classNames("capitalize", canDrag ? "cursor-grab" : "cursor-default")}
-                // * 9 to fix overlapping issues with next table column
-                style={{ minWidth: nameAndCallsign.length * 9 }} // todo: still necessary?
-              >
+            <span
+              className={classNames("capitalize", canDrag ? "cursor-grab" : "cursor-default")}
+              // * 9 to fix overlapping issues with next table column
+              style={{ minWidth: nameAndCallsign.length * 9 }} // todo: still necessary?
+            >
+              <ActiveUnitsQualificationsCard canBeOpened={!isDragging} unit={officer}>
                 {isUnitOfficer(officer) && officer.imageId ? (
                   <Image
                     className="rounded-md w-[30px] h-[30px] object-cover mr-2 inline-block"
@@ -141,8 +145,8 @@ export function OfficerColumn({ officer, nameAndCallsign, setTempUnit }: Props) 
                 ) : (
                   nameAndCallsign
                 )}
-              </span>
-            </ActiveUnitsQualificationsCard>
+              </ActiveUnitsQualificationsCard>
+            </span>
           )}
         </Draggable>
       </span>

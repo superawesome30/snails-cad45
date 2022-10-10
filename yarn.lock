@@ -1556,6 +1556,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-aria/dnd@npm:^3.0.0-rc.0":
+  version: 3.0.0-rc.0
+  resolution: "@react-aria/dnd@npm:3.0.0-rc.0"
+  dependencies:
+    "@babel/runtime": ^7.6.2
+    "@internationalized/string": ^3.0.0
+    "@react-aria/i18n": ^3.6.1
+    "@react-aria/interactions": ^3.12.0
+    "@react-aria/live-announcer": ^3.1.1
+    "@react-aria/overlays": ^3.11.0
+    "@react-aria/utils": ^3.14.0
+    "@react-aria/visually-hidden": ^3.5.0
+    "@react-stately/dnd": 3.0.0-rc.0
+    "@react-types/button": ^3.6.2
+    "@react-types/shared": ^3.15.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+  checksum: 5328cdc2fbdbcfe6bd61c0c572a7cf45f1a56f77773f4e12b54aade34015be4fa4c0bb46d86c28b58d044c6c449b3fbf54ed8bf4c1b279bf456312a0c3fb075b
+  languageName: node
+  linkType: hard
+
 "@react-aria/focus@npm:^3.8.0, @react-aria/focus@npm:^3.9.0":
   version: 3.9.0
   resolution: "@react-aria/focus@npm:3.9.0"
@@ -1872,6 +1894,19 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
   checksum: 288cc69f89ea3485f5d2c1086cfa2f431b83d209f937cbc71a14433c9c2c3bd1e44ef403487685707d4b146cdcca3119783d2b72487d6429e44bff17f3fb9106
+  languageName: node
+  linkType: hard
+
+"@react-stately/dnd@npm:3.0.0-rc.0":
+  version: 3.0.0-rc.0
+  resolution: "@react-stately/dnd@npm:3.0.0-rc.0"
+  dependencies:
+    "@babel/runtime": ^7.6.2
+    "@react-stately/selection": ^3.11.0
+    "@react-types/shared": ^3.15.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+  checksum: c3789d5fdb9cc5cd647d9d20a56de89273a8d555f9ff7486696e42be3a11bede26b152d4f2eaa235e7a329d16499975b9df1d0a099431a6244fac878613dd189
   languageName: node
   linkType: hard
 
@@ -2571,6 +2606,7 @@ __metadata:
   dependencies:
     "@react-aria/button": ^3.6.2
     "@react-aria/dialog": ^3.4.0
+    "@react-aria/dnd": ^3.0.0-rc.0
     "@react-aria/focus": ^3.9.0
     "@react-aria/interactions": ^3.12.0
     "@react-aria/label": ^3.4.2
