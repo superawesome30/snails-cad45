@@ -9,6 +9,7 @@ interface Props {
   asChild?: boolean;
   canBeOpened?: boolean;
   children: React.ReactNode;
+  isDisabled?: boolean;
 }
 
 type ButtonProps = React.DetailedHTMLProps<
@@ -21,7 +22,7 @@ export interface ContextItem extends ButtonProps {
   component?: keyof typeof components;
 }
 
-export function ContextMenu({ items, canBeOpened = true, asChild, children }: Props) {
+export function ContextMenu({ items, canBeOpened = true, isDisabled, asChild, children }: Props) {
   const { canBeClosed, setCanBeClosed } = useModal();
 
   function handleClick(item: ContextItem, e: React.MouseEvent<HTMLButtonElement>) {
@@ -44,35 +45,37 @@ export function ContextMenu({ items, canBeOpened = true, asChild, children }: Pr
         }
       }}
     >
-      <Menu.Trigger asChild={asChild}>{children}</Menu.Trigger>
+      {isDisabled ? children : <Menu.Trigger asChild={asChild}>{children}</Menu.Trigger>}
 
-      <Menu.Content
-        alignOffset={5}
-        className={classNames(
-          "flex flex-col z-50",
-          "shadow-sm shadow-primary",
-          "bg-white dark:bg-primary border dark:border-secondary",
-          "p-2 rounded-md min-w-[15rem] max-h-[25rem] overflow-auto",
-        )}
-        style={{ scrollbarWidth: "thin" }}
-      >
-        {items.map((item) => {
-          const { component = "Item", ...rest } = typeof item === "object" ? item : {};
-          const Component = components[component];
+      {isDisabled ? null : (
+        <Menu.Content
+          alignOffset={5}
+          className={classNames(
+            "flex flex-col z-50",
+            "shadow-sm shadow-primary",
+            "bg-white dark:bg-primary border dark:border-secondary",
+            "p-2 rounded-md min-w-[15rem] max-h-[25rem] overflow-auto",
+          )}
+          style={{ scrollbarWidth: "thin" }}
+        >
+          {items.map((item) => {
+            const { component = "Item", ...rest } = typeof item === "object" ? item : {};
+            const Component = components[component];
 
-          return typeof item === "boolean" ? (
-            <Menu.Separator key={v4()} />
-          ) : (
-            <Component
-              key={v4()}
-              onPress={component === "Item" ? handleClick.bind(null, item) : undefined}
-              {...rest}
-            >
-              {item.name}
-            </Component>
-          );
-        })}
-      </Menu.Content>
+            return typeof item === "boolean" ? (
+              <Menu.Separator key={v4()} />
+            ) : (
+              <Component
+                key={v4()}
+                onClick={component === "Item" ? handleClick.bind(null, item) : undefined}
+                {...rest}
+              >
+                {item.name}
+              </Component>
+            );
+          })}
+        </Menu.Content>
+      )}
     </Menu.Root>
   );
 }

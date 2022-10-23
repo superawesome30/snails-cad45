@@ -54,29 +54,27 @@ export function ManageLicensesModal({
     >
       <Formik validate={validate} onSubmit={onSubmit} initialValues={INITIAL_VALUES}>
         {({ isValid }) => (
-          <>
+          <Form>
             <ManageLicensesFormFields flexType="row" allowRemoval={allowRemoval} isLeo={isLeo} />
 
-            <Form>
-              <footer className="flex justify-end mt-5">
-                <Button
-                  type="reset"
-                  onPress={() => closeModal(ModalIds.ManageLicenses)}
-                  variant="cancel"
-                >
-                  {common("cancel")}
-                </Button>
-                <Button
-                  className="flex items-center"
-                  disabled={!isValid || state === "loading"}
-                  type="submit"
-                >
-                  {state === "loading" ? <Loader className="mr-2" /> : null}
-                  {common("save")}
-                </Button>
-              </footer>
-            </Form>
-          </>
+            <footer className="flex justify-end mt-5">
+              <Button
+                type="reset"
+                onPress={() => closeModal(ModalIds.ManageLicenses)}
+                variant="cancel"
+              >
+                {common("cancel")}
+              </Button>
+              <Button
+                className="flex items-center"
+                disabled={!isValid || state === "loading"}
+                type="submit"
+              >
+                {state === "loading" ? <Loader className="mr-2" /> : null}
+                {common("save")}
+              </Button>
+            </footer>
+          </Form>
         )}
       </Formik>
     </Modal>
