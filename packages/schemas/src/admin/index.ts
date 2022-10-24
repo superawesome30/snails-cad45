@@ -136,3 +136,10 @@ export const CUSTOM_ROLE_SCHEMA = z.object({
   permissions: z.array(z.any()).min(1),
   discordRoleId: z.string().nullable().optional(),
 });
+
+export const ASYNC_TABLE_QUERY = z.object({
+  skip: z.number().optional().default(0),
+  query: z.string().or(z.number()).optional(),
+  includeAll: z.boolean().optional().default(false),
+  take: z.number().optional().default(12),
+});

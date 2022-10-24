@@ -5,6 +5,7 @@ import {
   CALL_911_SCHEMA,
   LINK_INCIDENT_TO_CALL_SCHEMA,
   ASSIGNED_UNIT,
+  GET_911_CALLS_QUERY,
 } from "@snailycad/schemas";
 import { HeaderParams, BodyParams, Context, PathParams, QueryParams } from "@tsed/platform-params";
 import { BadRequest, NotFound } from "@tsed/exceptions";
@@ -66,55 +67,54 @@ export class Calls911Controller {
   @Description("Get all 911 calls")
   async get911Calls(
     @Context("cad") cad: { miscCadSettings: MiscCadSettings | null },
-    @QueryParams("includeEnded", Boolean) includeEnded?: boolean,
-    @QueryParams("skip", Number) skip = 0,
-    @QueryParams("query", String) query = "",
-    @QueryParams("includeAll", Boolean) includeAll = false,
-    @QueryParams("take", Number) take = 12,
-    @QueryParams("department", String) department?: string,
-    @QueryParams("division", String) division?: string,
-    @QueryParams("assignedUnit", String) assignedUnit?: string,
+    @QueryParams() queryParams: unknown,
   ): Promise<APITypes.Get911CallsData> {
+    const query = validateSchema(GET_911_CALLS_QUERY, queryParams);
+
     const inactivityFilter = getInactivityFilter(cad, "call911InactivityTimeout");
     if (inactivityFilter) {
       this.endInactiveCalls(inactivityFilter.updatedAt);
     }
     const where: Prisma.Call911WhereInput = {
-      ended: includeEnded ? undefined : false,
+      ended: query.includeEnded ? undefined : false,
       ...(inactivityFilter?.filter ?? {}),
-      OR: query
-        ? [
-            { descriptionData: { array_contains: query } },
-            { name: { contains: query, mode: "insensitive" } },
-            { postal: { contains: query, mode: "insensitive" } },
-            { location: { contains: query, mode: "insensitive" } },
-            { description: { contains: query, mode: "insensitive" } },
-            { type: { value: { value: { contains: query, mode: "insensitive" } } } },
-            { situationCode: { value: { value: { contains: query, mode: "insensitive" } } } },
-          ]
-        : undefined,
+      OR:
+        typeof query.query === "string"
+          ? [
+              { descriptionData: { array_contains: query.query } },
+              { name: { contains: query.query, mode: "insensitive" } },
+              { postal: { contains: query.query, mode: "insensitive" } },
+              { location: { contains: query.query, mode: "insensitive" } },
+              { description: { contains: query.query, mode: "insensitive" } },
+              { type: { value: { value: { contains: query.query, mode: "insensitive" } } } },
+              {
+                situationCode: { value: { value: { contains: query.query, mode: "insensitive" } } },
+              },
+            ]
+          : undefined,
     };
 
-    if (department || division || assignedUnit) {
+    if (query.department || query.division || query.assignedUnit) {
       where.OR = [];
     }
 
-    if (parseInt(query) && where.OR) {
+    if (typeof query.query === "number" && where.OR) {
       // @ts-expect-error this can be ignored.
-      where.OR = [...Array.from(where.OR), { caseNumber: { equals: parseInt(query) } }];
+      where.OR = [...Array.from(where.OR), { caseNumber: { equals: query.query } }];
     }
 
-    if (department && where.OR) {
+    if (query.department && where.OR) {
       // @ts-expect-error this can be ignored.
-      where.OR = [...Array.from(where.OR), { departments: { some: { id: department } } }];
+      where.OR = [...Array.from(where.OR), { departments: { some: { id: query.department } } }];
     }
-    if (division && where.OR) {
+    if (query.division && where.OR) {
       // @ts-expect-error this can be ignored.
-      where.OR = [...Array.from(where.OR), { divisions: { some: { id: division } } }];
+      where.OR = [...Array.from(where.OR), { divisions: { some: { id: query.division } } }];
     }
-    if (assignedUnit && where.OR) {
+
+    if (query.assignedUnit && where.OR) {
       // @ts-expect-error this can be ignored.
-      where.OR = [...Array.from(where.OR), { assignedUnits: { some: { id: assignedUnit } } }];
+      where.OR = [...Array.from(where.OR), { assignedUnits: { some: { id: query.assignedUnit } } }];
     }
 
     // todo
@@ -125,8 +125,8 @@ export class Calls911Controller {
     const [totalCount, calls] = await Promise.all([
       prisma.call911.count({ where }),
       prisma.call911.findMany({
-        take: includeAll ? undefined : take,
-        skip: includeAll ? undefined : skip,
+        take: query.includeAll ? undefined : query.take,
+        skip: query.includeAll ? undefined : query.skip,
         include: callInclude,
         orderBy: { updatedAt: "desc" },
         where,

@@ -1,6 +1,17 @@
 import { z } from "zod";
 import { SELECT_VALUE } from "../leo";
 
+export const GET_911_CALLS_QUERY = z.object({
+  includeEnded: z.boolean().optional(),
+  skip: z.number().optional().default(0),
+  query: z.string().or(z.number()).optional(),
+  includeAll: z.boolean().optional().default(false),
+  take: z.number().optional().default(12),
+  department: z.string().optional(),
+  division: z.string().optional(),
+  assignedUnit: z.string().optional(),
+});
+
 export const CALL_GTA_MAP_POSITION_SCHEMA = z.object({
   x: z.number(),
   y: z.number(),
