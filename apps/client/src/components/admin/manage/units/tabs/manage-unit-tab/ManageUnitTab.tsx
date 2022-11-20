@@ -18,6 +18,7 @@ import type { GetManageUnitByIdData, PutManageUnitData } from "@snailycad/types/
 import { TabsContent } from "@radix-ui/react-tabs";
 import { QualificationsTable } from "../../QualificationsTable";
 import { useFeatureEnabled } from "hooks/useFeatureEnabled";
+import { ValueSelectField } from "components/form/select/value-select-field";
 
 interface Props {
   unit: GetManageUnitByIdData;
@@ -28,7 +29,7 @@ export function ManageUnitTab({ unit: data }: Props) {
 
   const t = useTranslations("Leo");
   const common = useTranslations("Common");
-  const { codes10, department, division, officerRank } = useValues();
+  const { department, division, officerRank } = useValues();
   const { state, execute } = useFetch();
   const router = useRouter();
   const { BADGE_NUMBERS, DIVISIONS } = useFeatureEnabled();
@@ -74,30 +75,19 @@ export function ManageUnitTab({ unit: data }: Props) {
       <Formik onSubmit={onSubmit} initialValues={INITIAL_VALUES}>
         {({ setFieldValue, handleChange, values, errors }) => (
           <Form>
-            <FormField label={t("status")}>
-              <Select
-                isClearable
-                name="status"
-                onChange={handleChange}
-                value={values.status}
-                values={codes10.values.map((v) => ({
-                  label: v.value.value,
-                  value: v.id,
-                }))}
-              />
-            </FormField>
+            <ValueSelectField
+              isClearable
+              type={"CODES_10"}
+              fieldName="status"
+              label={t("status")}
+            />
 
-            <FormField label="Department">
-              <Select
-                name="department"
-                onChange={handleChange}
-                value={values.department}
-                values={department.values.map((v) => ({
-                  label: v.value.value,
-                  value: v.id,
-                }))}
-              />
-            </FormField>
+            <ValueSelectField
+              isClearable
+              type={"DEPARTMENT"}
+              fieldName="department"
+              label={t("department")}
+            />
 
             {DIVISIONS ? (
               <FormField

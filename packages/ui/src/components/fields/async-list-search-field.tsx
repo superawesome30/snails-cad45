@@ -11,7 +11,7 @@ import { Popover } from "../overlays/async-list/popover";
 import { AsyncListFieldListBox } from "../list/async-list/async-list-list-box";
 import { useAsyncList } from "@react-stately/data";
 import { Button } from "../button";
-import { ChevronDown } from "react-bootstrap-icons";
+import { ChevronDown, X } from "react-bootstrap-icons";
 import { useDebounce } from "react-use";
 import type { Node } from "@react-types/shared";
 import { useTranslations } from "next-intl";
@@ -29,6 +29,7 @@ export interface AsyncListFieldProps<T extends object>
   extends Omit<ComboBoxProps<T>, "onSelectionChange"> {
   label: React.ReactNode;
   isOptional?: boolean;
+  isClearable?: boolean;
 
   errorMessage?: string | null;
   className?: string;
@@ -51,7 +52,7 @@ function AsyncListSearchField<T extends object>(props: AsyncListFieldProps<T>) {
   const list = useAsyncList<T>({
     async load({ signal, filterText }) {
       if (props.fetchOptions.filterTextRequired && !filterText) {
-        return { items: [] };
+        return { items: props.defaultItems ?? [] };
       }
 
       const apiPath =
@@ -104,6 +105,12 @@ function AsyncListSearchField<T extends object>(props: AsyncListFieldProps<T>) {
     }
   }
 
+  function handleClear() {
+    props.setValues({ localValue: "", node: null });
+    // @ts-expect-error - react-aria doesn't support this. We support clearing the field.
+    state.setSelectedKey(null);
+  }
+
   const listOptions = {
     items: list.items,
     inputValue: props.localValue,
@@ -117,6 +124,7 @@ function AsyncListSearchField<T extends object>(props: AsyncListFieldProps<T>) {
     onSelectionChange: handleSelectionChange,
   });
 
+  const showClearButton = props.isClearable && state.selectedKey;
   const { inputProps, listBoxProps, errorMessageProps, labelProps } = useComboBox(
     {
       ...props,
@@ -144,11 +152,30 @@ function AsyncListSearchField<T extends object>(props: AsyncListFieldProps<T>) {
           <div
             className={classNames(
               "absolute top-0 bottom-0 flex items-center justify-center",
-              includeMenu ? "right-11" : "right-2",
+              includeMenu ? (showClearButton ? "right-20" : "right-11") : "right-2",
             )}
           >
             <Loader />
           </div>
+        ) : null}
+
+        {showClearButton ? (
+          <Button
+            disabled={inputProps.disabled}
+            ref={buttonRef}
+            onPress={handleClear}
+            className={classNames(
+              "!rounded-none !border-x-0 px-2",
+              state.isFocused
+                ? "border-gray-800 dark:border-gray-500"
+                : "border-gray-200 dark:border-gray-700",
+              props.errorMessage &&
+                "!border-red-500 focus:!border-red-700 dark:!focus:border-red-700",
+            )}
+            type="button"
+          >
+            <X />
+          </Button>
         ) : null}
         {includeMenu ? (
           <Button
@@ -156,7 +183,8 @@ function AsyncListSearchField<T extends object>(props: AsyncListFieldProps<T>) {
             ref={buttonRef}
             onPress={() => state.open()}
             className={classNames(
-              "!rounded-l-none !border-l-0 px-2",
+              "!rounded-l-none  px-2",
+              !showClearButton && "!border-l-0",
               state.isFocused
                 ? "border-gray-800 dark:border-gray-500"
                 : "border-gray-200 dark:border-gray-700",
