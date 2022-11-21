@@ -3,7 +3,7 @@ import type { DeleteLeoCheckoutImpoundedVehicleData } from "@snailycad/types/api
 import { Button, Loader } from "@snailycad/ui";
 import { Modal } from "components/modal/Modal";
 import useFetch from "lib/useFetch";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { useTranslations } from "use-intl";
 

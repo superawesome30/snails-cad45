@@ -4,7 +4,7 @@ import { makeUnitName } from "lib/utils";
 import { useGenerateCallsign } from "hooks/useGenerateCallsign";
 import { ModalIds } from "types/ModalIds";
 import { Button } from "@snailycad/ui";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { CaretDownFill } from "react-bootstrap-icons";
 import type { Full911Call } from "state/dispatch/dispatchState";
 import type { MapCallProps } from "./ActiveMapCalls";

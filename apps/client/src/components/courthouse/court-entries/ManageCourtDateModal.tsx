@@ -1,7 +1,7 @@
 import { COURT_DATE_SCHEMA } from "@snailycad/schemas";
 import { Button, DatePickerField, TextField } from "@snailycad/ui";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { Form, Formik } from "formik";
 import { handleValidate } from "lib/handleValidate";
 import { useTranslations } from "next-intl";

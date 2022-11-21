@@ -13,7 +13,7 @@ import useFetch from "lib/useFetch";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/router";
 import type { Unit } from "src/pages/admin/manage/units";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 
 interface Props {

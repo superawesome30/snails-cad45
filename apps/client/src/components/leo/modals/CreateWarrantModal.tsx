@@ -5,7 +5,7 @@ import { FormField } from "components/form/FormField";
 import { Select } from "components/form/Select";
 import useFetch from "lib/useFetch";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { toastMessage } from "lib/toastMessage";
 import type { PostCreateWarrantData, PutWarrantsData } from "@snailycad/types/api";

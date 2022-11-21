@@ -6,7 +6,7 @@ import { PersonFill } from "react-bootstrap-icons";
 import type { GetServerSideProps } from "next";
 import { getSessionUser } from "lib/auth";
 import { Layout } from "components/Layout";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { BreadcrumbItem, Breadcrumbs, Button, buttonVariants } from "@snailycad/ui";
 import useFetch from "lib/useFetch";
 import { getTranslations } from "lib/getTranslation";

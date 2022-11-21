@@ -1,7 +1,7 @@
 import { Form, Formik } from "formik";
 import { useTranslations } from "use-intl";
 import { LICENSE_SCHEMA } from "@snailycad/schemas";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { Modal } from "components/modal/Modal";
 import { ModalIds } from "types/ModalIds";
 import type { SelectValue } from "components/form/Select";

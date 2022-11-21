@@ -9,7 +9,7 @@ import { requestAll } from "lib/utils";
 import { Title } from "components/shared/Title";
 import { Permissions } from "@snailycad/permissions";
 import { Button } from "@snailycad/ui";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { Table, useTableState } from "components/shared/Table";
 import { ModalIds } from "types/ModalIds";
 import { AlertModal } from "components/modal/AlertModal";

@@ -1,6 +1,6 @@
 import type { Citizen } from "@snailycad/types";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { useImageUrl } from "hooks/useImageUrl";
 import { ModalIds } from "types/ModalIds";
 import Image from "next/image";

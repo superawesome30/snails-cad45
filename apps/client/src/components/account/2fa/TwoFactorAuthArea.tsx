@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import { useAuth } from "context/AuthContext";
 import { Button } from "@snailycad/ui";
 import { ModalIds } from "types/ModalIds";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 
 export function TwoFactorAuthArea() {
   const { openModal } = useModal();

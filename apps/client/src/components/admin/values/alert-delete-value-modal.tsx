@@ -4,7 +4,7 @@ import { ModalIds } from "types/ModalIds";
 import { useTranslations } from "use-intl";
 import { hasValueObj, isBaseValue } from "@snailycad/utils/typeguards";
 import type { DeleteValueByIdData } from "@snailycad/types/api";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import type { AnyValue, ValueType } from "@snailycad/types";
 import type { useAsyncTable } from "components/shared/Table";
 import type { useTemporaryItem } from "hooks/shared/useTemporaryItem";

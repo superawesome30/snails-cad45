@@ -3,7 +3,7 @@ import { Loader, Input, Button, TextField, AsyncListSearchField, Item } from "@s
 import { FormField } from "components/form/FormField";
 import { Select } from "components/form/Select";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { useValues } from "context/ValuesContext";
 import { Form, Formik, useFormikContext } from "formik";
 import { handleValidate } from "lib/handleValidate";

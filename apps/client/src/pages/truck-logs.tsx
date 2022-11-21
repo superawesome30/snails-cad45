@@ -2,7 +2,7 @@ import * as React from "react";
 import dynamic from "next/dynamic";
 import { Button } from "@snailycad/ui";
 import { Layout } from "components/Layout";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { getSessionUser } from "lib/auth";
 import { getTranslations } from "lib/getTranslation";
 import { requestAll } from "lib/utils";

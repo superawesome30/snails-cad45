@@ -16,7 +16,7 @@ import type { Full911Call } from "state/dispatch/dispatchState";
 import { Select } from "components/form/Select";
 import { useTranslations } from "next-intl";
 import { useCall911State } from "state/dispatch/call911State";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { AssignedUnitsTable } from "./AssignedUnitsTable";
 import { useFeatureEnabled } from "hooks/useFeatureEnabled";
 import { AddressPostalSelect } from "components/form/select/PostalSelect";

@@ -8,7 +8,7 @@ import { Button } from "@snailycad/ui";
 import { useTranslations } from "use-intl";
 import { useListener } from "@casper124578/use-socket.io";
 import { SocketEvents } from "@snailycad/config";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { requestAll } from "lib/utils";
 import { Title } from "components/shared/Title";

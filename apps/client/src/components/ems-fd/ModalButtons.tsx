@@ -1,7 +1,7 @@
 import { Button } from "@snailycad/ui";
 import { ModalIds } from "types/ModalIds";
 import { Rank, ShouldDoType } from "@snailycad/types";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { useTranslations } from "use-intl";
 import { ActiveDeputy, useEmsFdState } from "state/emsFdState";
 import { useGenerateCallsign } from "hooks/useGenerateCallsign";

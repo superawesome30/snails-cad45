@@ -4,7 +4,7 @@ import { FullDate } from "components/shared/FullDate";
 import { Table, useTableState } from "components/shared/Table";
 import { useTranslations } from "next-intl";
 import { ManageCourtDateModal } from "./ManageCourtDateModal";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { AlertModal } from "components/modal/AlertModal";
 import { useTemporaryItem } from "hooks/shared/useTemporaryItem";

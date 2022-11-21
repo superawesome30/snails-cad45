@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Modal } from "components/modal/Modal";
 import { useAuth } from "context/AuthContext";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { Loader } from "@snailycad/ui";
 import ReactMarkdown from "react-markdown";

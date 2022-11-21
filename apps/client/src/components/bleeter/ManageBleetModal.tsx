@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { Loader, Input, Button, TextField } from "@snailycad/ui";
 import { FormField } from "components/form/FormField";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import useFetch from "lib/useFetch";
 import { ModalIds } from "types/ModalIds";
 import { handleValidate } from "lib/handleValidate";

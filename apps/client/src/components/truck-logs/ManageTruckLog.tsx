@@ -4,7 +4,7 @@ import { FormField } from "components/form/FormField";
 import { FormRow } from "components/form/FormRow";
 import { Select } from "components/form/Select";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { Form, Formik } from "formik";
 import { handleValidate } from "lib/handleValidate";
 import useFetch from "lib/useFetch";

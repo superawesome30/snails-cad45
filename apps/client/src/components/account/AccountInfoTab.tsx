@@ -4,7 +4,7 @@ import { Form, Formik } from "formik";
 import { useAuth } from "context/AuthContext";
 import { FormRow } from "components/form/FormRow";
 import { Button, TextField } from "@snailycad/ui";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { ManagePermissionsModal } from "components/admin/manage/users/ManagePermissionsModal";
 

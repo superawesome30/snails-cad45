@@ -5,7 +5,7 @@ import { useFeatureEnabled } from "hooks/useFeatureEnabled";
 import { useTranslations } from "use-intl";
 import { Button } from "@snailycad/ui";
 import { useVehicleSearch, VehicleSearchResult } from "state/search/vehicleSearchState";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { useNameSearch } from "state/search/name-search-state";
 import { ModalIds } from "types/ModalIds";
 

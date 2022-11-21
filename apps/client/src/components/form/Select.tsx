@@ -6,7 +6,7 @@ import ReactSelect, {
   ActionMeta,
 } from "react-select";
 import { useAuth } from "context/AuthContext";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 
 import { MultiValueContainerContextMenu } from "./select/MultiValueContainerContextMenu";
 import { MultiValueContainerPenalCode } from "./select/MultiValueContainerPenalCode";

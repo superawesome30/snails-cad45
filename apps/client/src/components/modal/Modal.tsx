@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { X } from "react-bootstrap-icons";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { classNames } from "lib/classNames";
 
 export interface ModalProps {

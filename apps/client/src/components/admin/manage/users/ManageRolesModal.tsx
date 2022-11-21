@@ -1,6 +1,6 @@
 import type { CustomRole, User } from "@snailycad/types";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { useTranslations } from "next-intl";
 import { ModalIds } from "types/ModalIds";
 import { FormField } from "components/form/FormField";

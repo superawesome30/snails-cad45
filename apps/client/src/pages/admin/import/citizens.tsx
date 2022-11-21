@@ -8,7 +8,7 @@ import { Title } from "components/shared/Title";
 import { AdvancedCitizensTab } from "components/admin/manage/citizens/AdvancedCitizensTab";
 import { Button } from "@snailycad/ui";
 import { ModalIds } from "types/ModalIds";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { Rank } from "@snailycad/types";
 import { Permissions } from "@snailycad/permissions";
 

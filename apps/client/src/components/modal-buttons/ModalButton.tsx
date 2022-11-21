@@ -4,7 +4,7 @@ import type { ModalButton, Args } from "./buttons";
 import { Button } from "@snailycad/ui";
 import { useFeatureEnabled } from "hooks/useFeatureEnabled";
 import { useActiveDispatchers } from "hooks/realtime/useActiveDispatchers";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { useRouter } from "next/router";
 import type { EmsFdDeputy } from "@snailycad/types";
 import type { ActiveOfficer } from "state/leoState";

@@ -12,7 +12,7 @@ import { FullDate } from "components/shared/FullDate";
 import { Button } from "@snailycad/ui";
 import { ImportModal } from "components/admin/import/ImportModal";
 import { ModalIds } from "types/ModalIds";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { useAsyncTable } from "hooks/shared/table/use-async-table";
 import type { GetImportVehiclesData, PostImportVehiclesData } from "@snailycad/types/api";
 import { AlertModal } from "components/modal/AlertModal";

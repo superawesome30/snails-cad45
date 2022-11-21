@@ -5,7 +5,7 @@ import { getTranslations } from "lib/getTranslation";
 import { makeUnitName, requestAll, yesOrNoText } from "lib/utils";
 import type { GetServerSideProps } from "next";
 import { useTranslations } from "use-intl";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { Button } from "@snailycad/ui";
 import { ModalIds } from "types/ModalIds";
 import { useGenerateCallsign } from "hooks/useGenerateCallsign";

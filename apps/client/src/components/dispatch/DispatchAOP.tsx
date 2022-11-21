@@ -1,5 +1,5 @@
 import { Button } from "@snailycad/ui";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { useAreaOfPlay } from "hooks/global/useAreaOfPlay";
 import { Pencil } from "react-bootstrap-icons";
 import { ModalIds } from "types/ModalIds";

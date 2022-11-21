@@ -6,7 +6,7 @@ import type { CombinedLeoUnit, EmsFdDeputy, StatusValue } from "@snailycad/types
 import { useGenerateCallsign } from "hooks/useGenerateCallsign";
 import { Full911Call, useDispatchState } from "state/dispatch/dispatchState";
 import { makeUnitName } from "lib/utils";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { isUnitCombined } from "@snailycad/utils";
 import type { Post911CallEventsData, PutDispatchStatusByUnitId } from "@snailycad/types/api";

@@ -7,7 +7,7 @@ import { getTranslations } from "lib/getTranslation";
 import { makeUnitName, requestAll } from "lib/utils";
 import type { GetServerSideProps } from "next";
 import type { ImpoundedVehicle } from "@snailycad/types";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { Table, useTableState } from "components/shared/Table";
 import { Title } from "components/shared/Title";

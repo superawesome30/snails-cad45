@@ -8,7 +8,7 @@ import { getTranslations } from "lib/getTranslation";
 import type { GetServerSideProps } from "next";
 import { useTranslations } from "use-intl";
 import { ModalIds } from "types/ModalIds";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import useFetch from "lib/useFetch";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";

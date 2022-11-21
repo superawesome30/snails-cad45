@@ -1,7 +1,7 @@
 import { useTranslations } from "use-intl";
 import { Button } from "@snailycad/ui";
 import { ModalIds } from "types/ModalIds";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { LicenseInitialValues, ManageLicensesModal } from "./ManageLicensesModal";
 import { CitizenWithVehAndWep, useCitizen } from "context/CitizenContext";
 import { useFeatureEnabled } from "hooks/useFeatureEnabled";

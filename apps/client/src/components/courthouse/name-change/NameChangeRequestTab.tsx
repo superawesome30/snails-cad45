@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Button } from "@snailycad/ui";
 import { TabsContent } from "components/shared/TabList";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { useTranslations } from "next-intl";
 import { ModalIds } from "types/ModalIds";
 import { Table, useTableState } from "components/shared/Table";

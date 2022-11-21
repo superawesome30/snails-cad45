@@ -4,7 +4,7 @@ import { ManageRecordModal } from "components/leo/modals/ManageRecordModal";
 import { useLoadValuesClientSide } from "hooks/useLoadValuesClientSide";
 import { useTranslations } from "use-intl";
 import { Button } from "@snailycad/ui";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { useFormikContext } from "formik";
 import { RecordsTable } from "components/leo/modals/NameSearchModal/tabs/RecordsTab";

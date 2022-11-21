@@ -2,7 +2,7 @@ import { Loader, Button } from "@snailycad/ui";
 import useFetch from "lib/useFetch";
 import { useRouter } from "next/router";
 import { ModalIds } from "types/ModalIds";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { AlertModal } from "components/modal/AlertModal";
 import { GiveTempPasswordModal } from "./GiveTempPasswordModal";
 import { useTranslations } from "use-intl";

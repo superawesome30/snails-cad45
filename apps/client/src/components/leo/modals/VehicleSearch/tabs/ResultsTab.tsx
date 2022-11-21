@@ -12,7 +12,7 @@ import { TabsContent } from "components/shared/TabList";
 import { TruckLogsTable } from "../TruckLogsTable";
 import { CustomFieldsArea } from "../../CustomFieldsArea";
 import { useVehicleLicenses } from "hooks/locale/useVehicleLicenses";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { useRouter } from "next/router";
 import { ModalIds } from "types/ModalIds";
 import { useFeatureEnabled } from "hooks/useFeatureEnabled";

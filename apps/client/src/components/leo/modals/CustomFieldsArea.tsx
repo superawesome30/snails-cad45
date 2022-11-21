@@ -1,6 +1,6 @@
 import { Button } from "@snailycad/ui";
 import { Infofield } from "components/shared/Infofield";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { useTranslations } from "next-intl";
 import type { NameSearchResult } from "state/search/name-search-state";
 import type { VehicleSearchResult } from "state/search/vehicleSearchState";

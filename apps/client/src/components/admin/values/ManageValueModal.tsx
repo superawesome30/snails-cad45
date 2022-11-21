@@ -14,7 +14,7 @@ import { Modal } from "components/modal/Modal";
 import { Form, Formik, FormikHelpers } from "formik";
 import { handleValidate } from "lib/handleValidate";
 import useFetch from "lib/useFetch";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { useValues } from "context/ValuesContext";
 import {
   AnyValue,

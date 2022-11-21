@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import useFetch from "lib/useFetch";
 import { ModalIds } from "types/ModalIds";
 import { Loader, Button, buttonVariants, TextField } from "@snailycad/ui";

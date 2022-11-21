@@ -6,7 +6,7 @@ import { Modal } from "components/modal/Modal";
 import { Form, Formik } from "formik";
 import useFetch from "lib/useFetch";
 import { useCall911State } from "state/dispatch/call911State";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { useTranslations } from "use-intl";
 

@@ -2,7 +2,7 @@ import { createPortal } from "react-dom";
 import { usePortal } from "@casper124578/useful";
 import { Button } from "@snailycad/ui";
 import { useTranslations } from "next-intl";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { MapItem, useDispatchMapState } from "state/mapState";
 import { Permissions, usePermission } from "hooks/usePermission";

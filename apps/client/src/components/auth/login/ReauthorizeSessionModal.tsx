@@ -1,6 +1,6 @@
 import { Modal } from "components/modal/Modal";
 import { toastMessage } from "lib/toastMessage";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { LoginForm } from "./LoginForm";
 

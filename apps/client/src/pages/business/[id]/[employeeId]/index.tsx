@@ -7,7 +7,7 @@ import { BreadcrumbItem, Breadcrumbs, Button, buttonVariants } from "@snailycad/
 import { Layout } from "components/Layout";
 import { getSessionUser } from "lib/auth";
 import { getTranslations } from "lib/getTranslation";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { useBusinessState } from "state/businessState";
 import { useTranslations } from "use-intl";

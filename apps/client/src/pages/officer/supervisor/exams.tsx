@@ -13,7 +13,7 @@ import { FullDate } from "components/shared/FullDate";
 import { Permissions } from "@snailycad/permissions";
 import { Status } from "components/shared/Status";
 import { ManageExamModal } from "components/leo/exams/ManageExamModal";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { usePermission } from "hooks/usePermission";
 import { AlertModal } from "components/modal/AlertModal";

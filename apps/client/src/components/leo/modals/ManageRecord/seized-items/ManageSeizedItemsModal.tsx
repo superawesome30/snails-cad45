@@ -3,7 +3,7 @@ import { useTranslations } from "use-intl";
 import { Button, TextField } from "@snailycad/ui";
 import { FormField } from "components/form/FormField";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import type { SeizedItem } from "@snailycad/types";
 import { Toggle } from "components/form/Toggle";

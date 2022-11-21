@@ -4,7 +4,7 @@ import { Input, Loader, Button } from "@snailycad/ui";
 import { Modal } from "components/modal/Modal";
 import { Form, Formik, FormikHelpers } from "formik";
 import useFetch from "lib/useFetch";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { useTranslations } from "use-intl";
 import { ModalIds } from "types/ModalIds";
 import type { ValueType } from "@snailycad/types";

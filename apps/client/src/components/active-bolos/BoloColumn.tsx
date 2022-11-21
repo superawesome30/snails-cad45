@@ -2,7 +2,7 @@ import * as React from "react";
 import { Bolo, BoloType } from "@snailycad/types";
 import { useTranslations } from "next-intl";
 import { useVirtualizer } from "@tanstack/react-virtual";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { BoloItem } from "./BoloItem";
 

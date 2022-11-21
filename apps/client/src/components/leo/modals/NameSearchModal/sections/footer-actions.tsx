@@ -6,7 +6,7 @@ import { normalizeValue } from "context/ValuesContext";
 import { useFeatureEnabled } from "hooks/useFeatureEnabled";
 import useFetch from "lib/useFetch";
 import { ThreeDotsVertical } from "react-bootstrap-icons";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { useNameSearch } from "state/search/name-search-state";
 import { ModalIds } from "types/ModalIds";
 import { useTranslations } from "use-intl";

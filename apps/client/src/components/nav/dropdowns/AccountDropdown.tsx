@@ -8,7 +8,7 @@ import { classNames } from "lib/classNames";
 import { Dropdown } from "components/Dropdown";
 import { Button } from "@snailycad/ui";
 import { ModalIds } from "types/ModalIds";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import dynamic from "next/dynamic";
 
 const ChangelogModal = dynamic(async () => (await import("../ChangelogModal")).ChangelogModal, {

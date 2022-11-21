@@ -8,7 +8,7 @@ import { FullDate } from "components/shared/FullDate";
 import { TabsContent } from "components/shared/TabList";
 import type { CitizenLog } from "src/pages/officer/supervisor/citizen-logs";
 import { makeUnitName } from "lib/utils";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { ManageRecordModal } from "../modals/ManageRecordModal";
 import useFetch from "lib/useFetch";

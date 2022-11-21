@@ -1,7 +1,7 @@
 import { Button } from "@snailycad/ui";
 import { FormField } from "components/form/FormField";
 import { Table, useTableState } from "components/shared/Table";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { useFormikContext } from "formik";
 import { yesOrNoText } from "lib/utils";
 import { useTranslations } from "next-intl";

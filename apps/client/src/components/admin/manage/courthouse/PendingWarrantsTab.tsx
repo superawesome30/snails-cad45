@@ -8,7 +8,7 @@ import { FullDate } from "components/shared/FullDate";
 import useFetch from "lib/useFetch";
 import type { GetManagePendingWarrants, PutManagePendingWarrants } from "@snailycad/types/api";
 import { useTemporaryItem } from "hooks/shared/useTemporaryItem";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { CreateWarrantModal } from "components/leo/modals/CreateWarrantModal";
 import { CallDescription } from "components/dispatch/active-calls/CallDescription";

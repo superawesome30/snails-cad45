@@ -2,7 +2,7 @@ import { Button } from "@snailycad/ui";
 import { useActiveDispatchers } from "hooks/realtime/useActiveDispatchers";
 import { useFeatureEnabled } from "hooks/useFeatureEnabled";
 import type { Full911Call } from "state/dispatch/dispatchState";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { usePermission } from "hooks/usePermission";
 import { useRouter } from "next/router";
 import { defaultPermissions } from "@snailycad/permissions";

@@ -7,7 +7,7 @@ import { Table, useTableState } from "components/shared/Table";
 import { yesOrNoText } from "lib/utils";
 import { FullDate } from "components/shared/FullDate";
 import { ModalIds } from "types/ModalIds";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { ManageIncidentModal } from "components/leo/incidents/ManageIncidentModal";
 import { useActiveIncidents } from "hooks/realtime/useActiveIncidents";
 import { AlertModal } from "components/modal/AlertModal";

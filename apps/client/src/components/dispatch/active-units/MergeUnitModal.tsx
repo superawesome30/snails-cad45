@@ -6,7 +6,7 @@ import { Modal } from "components/modal/Modal";
 import { Form, Formik } from "formik";
 import useFetch from "lib/useFetch";
 import { useTranslations } from "next-intl";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { Select } from "components/form/Select";
 import { useActiveOfficers } from "hooks/realtime/useActiveOfficers";

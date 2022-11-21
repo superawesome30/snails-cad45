@@ -2,7 +2,7 @@ import * as Menu from "@radix-ui/react-context-menu";
 import type * as React from "react";
 import { v4 } from "uuid";
 import { classNames } from "lib/classNames";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 
 interface Props {
   items: (ContextItem | boolean)[];

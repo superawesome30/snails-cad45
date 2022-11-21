@@ -4,7 +4,7 @@ import { Button, TextField } from "@snailycad/ui";
 import { getSessionUser } from "lib/auth";
 import { getTranslations } from "lib/getTranslation";
 import type { GetServerSideProps } from "next";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import {
   DriversLicenseCategoryType,
   Rank,

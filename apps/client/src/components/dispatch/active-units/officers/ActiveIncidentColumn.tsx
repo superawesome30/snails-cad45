@@ -3,7 +3,7 @@ import type { LeoIncident } from "@snailycad/types";
 import { useTranslations } from "next-intl";
 import { ModalIds } from "types/ModalIds";
 import { ManageIncidentModal } from "components/leo/incidents/ManageIncidentModal";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { Button } from "@snailycad/ui";
 import { useActiveDispatchers } from "hooks/realtime/useActiveDispatchers";
 

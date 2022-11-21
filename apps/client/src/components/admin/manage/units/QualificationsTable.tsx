@@ -5,7 +5,7 @@ import { AlertModal } from "components/modal/AlertModal";
 import { Table, useTableState } from "components/shared/Table";
 import useFetch from "lib/useFetch";
 import { useTranslations } from "next-intl";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { AddQualificationsModal } from "./AddQualificationsModal";
 import { FullDate } from "components/shared/FullDate";

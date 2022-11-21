@@ -2,7 +2,7 @@ import { TabsContent } from "components/shared/TabList";
 import { useTranslations } from "use-intl";
 import { Button } from "@snailycad/ui";
 import { FullEmployee, useBusinessState } from "state/businessState";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { ManageEmployeeModal } from "./ManageEmployeeModal";
 import { Employee, EmployeeAsEnum, WhitelistStatus } from "@snailycad/types";

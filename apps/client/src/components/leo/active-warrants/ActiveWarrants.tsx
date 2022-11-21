@@ -2,7 +2,7 @@ import type { AssignedWarrantOfficer, Warrant } from "@snailycad/types";
 import { Button } from "@snailycad/ui";
 import { Table, useTableState } from "components/shared/Table";
 import { useTranslations } from "next-intl";
-import { useModal } from "state/modalState";
+import { useModal } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { CreateWarrantModal } from "../modals/CreateWarrantModal";
 import { useTemporaryItem } from "hooks/shared/useTemporaryItem";
