@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Button } from "@snailycad/ui";
 import { TabsContent } from "components/shared/TabList";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { useTranslations } from "next-intl";
 import { ModalIds } from "types/ModalIds";
 import { Table, useTableState } from "components/shared/Table";
@@ -24,7 +24,7 @@ export function CourtEntriesTab(props: Props) {
 
   const t = useTranslations("Courthouse");
   const common = useTranslations("Common");
-  const { openModal, closeModal } = useModal();
+  const { openModal, closeModal } = useModalActions();
   const { state, execute } = useFetch();
   const tableState = useTableState();
 

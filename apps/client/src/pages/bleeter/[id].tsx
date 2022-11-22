@@ -8,7 +8,7 @@ import { getTranslations } from "lib/getTranslation";
 import type { GetServerSideProps } from "next";
 import { useTranslations } from "use-intl";
 import { ModalIds } from "types/ModalIds";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import useFetch from "lib/useFetch";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
@@ -30,7 +30,7 @@ interface Props {
 export default function BleetPost({ post }: Props) {
   const { state, execute } = useFetch();
   const { user } = useAuth();
-  const { openModal } = useModal();
+  const { openModal } = useModalActions();
   const common = useTranslations("Common");
   const t = useTranslations("Bleeter");
   const router = useRouter();

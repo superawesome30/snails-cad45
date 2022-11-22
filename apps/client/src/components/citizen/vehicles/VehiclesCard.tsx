@@ -4,7 +4,7 @@ import { Button } from "@snailycad/ui";
 import type { RegisteredVehicle } from "@snailycad/types";
 import { RegisterVehicleModal } from "./modals/RegisterVehicleModal";
 import { ModalIds } from "types/ModalIds";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { AlertModal } from "components/modal/AlertModal";
 import useFetch from "lib/useFetch";
 import { Table, useTableState } from "components/shared/Table";
@@ -21,7 +21,7 @@ import { SearchArea } from "components/shared/search/search-area";
 export function VehiclesCard(props: { vehicles: RegisteredVehicle[] }) {
   const [search, setSearch] = React.useState("");
 
-  const { openModal, closeModal } = useModal();
+  const { openModal, closeModal } = useModalActions();
   const common = useTranslations("Common");
   const t = useTranslations("Vehicles");
   const { state, execute } = useFetch();

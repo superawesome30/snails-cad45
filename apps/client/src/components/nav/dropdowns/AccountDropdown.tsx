@@ -8,7 +8,7 @@ import { classNames } from "lib/classNames";
 import { Dropdown } from "components/Dropdown";
 import { Button } from "@snailycad/ui";
 import { ModalIds } from "types/ModalIds";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import dynamic from "next/dynamic";
 
 const ChangelogModal = dynamic(async () => (await import("../ChangelogModal")).ChangelogModal, {
@@ -21,7 +21,7 @@ export function AccountDropdown() {
   const { user, setUser, cad } = useAuth();
   const router = useRouter();
   const t = useTranslations("Nav");
-  const { openModal } = useModal();
+  const { openModal } = useModalActions();
 
   async function handleLogout() {
     const success = await logout();

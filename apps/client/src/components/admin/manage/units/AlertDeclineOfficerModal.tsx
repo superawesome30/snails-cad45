@@ -1,6 +1,6 @@
 import { Loader, Button, SelectField } from "@snailycad/ui";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { Form, Formik } from "formik";
 import { useTranslations } from "next-intl";
 import type { Unit } from "src/pages/admin/manage/units";
@@ -15,7 +15,7 @@ export function AlertDeclineOfficerModal({
 }) {
   const common = useTranslations("Common");
   const t = useTranslations("Management");
-  const { isOpen, closeModal, getPayload } = useModal();
+  const { isOpen, closeModal, getPayload } = useModalActions();
   const unit = getPayload<Unit>(ModalIds.AlertDeclineOfficer);
 
   function handleClose() {

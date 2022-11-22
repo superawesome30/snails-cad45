@@ -2,7 +2,7 @@ import * as React from "react";
 import { CREATE_OFFICER_SCHEMA } from "@snailycad/schemas";
 import { Loader, Button } from "@snailycad/ui";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { Formik, FormikHelpers } from "formik";
 import { handleValidate } from "lib/handleValidate";
 import useFetch from "lib/useFetch";
@@ -33,7 +33,7 @@ interface Props {
 export function ManageOfficerModal({ officer, onClose, onUpdate, onCreate }: Props) {
   const [image, setImage] = React.useState<File | string | null>(null);
 
-  const { isOpen, closeModal } = useModal();
+  const { isOpen, closeModal } = useModalActions();
   const common = useTranslations("Common");
   const t = useTranslations("Leo");
   const formRef = React.useRef<HTMLFormElement>(null);

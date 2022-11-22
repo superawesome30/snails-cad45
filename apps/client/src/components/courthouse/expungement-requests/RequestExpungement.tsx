@@ -2,7 +2,7 @@ import * as React from "react";
 import { Loader, Button } from "@snailycad/ui";
 import { FormField } from "components/form/FormField";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { Form, Formik } from "formik";
 import useFetch from "lib/useFetch";
 import { useTranslations } from "next-intl";
@@ -21,7 +21,7 @@ export function RequestExpungement({
   onSuccess(json: PostExpungementRequestByCitizenIdData): void;
 }) {
   const { state, execute } = useFetch();
-  const { closeModal, isOpen } = useModal();
+  const { closeModal, isOpen } = useModalActions();
 
   const [result, setResult] = React.useState<false | null | GetExpungementRequestByCitizenIdData>(
     null,

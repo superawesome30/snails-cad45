@@ -2,7 +2,7 @@ import * as React from "react";
 import dynamic from "next/dynamic";
 import { Button } from "@snailycad/ui";
 import { Layout } from "components/Layout";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { getSessionUser } from "lib/auth";
 import { getTranslations } from "lib/getTranslation";
 import { requestAll } from "lib/utils";
@@ -21,7 +21,7 @@ const ManageTruckLogModal = dynamic(
 );
 
 export default function TruckLogs({ registeredVehicles, logs: data }: GetTruckLogsData) {
-  const { openModal, closeModal } = useModal();
+  const { openModal, closeModal } = useModalActions();
   const [logs, setLogs] = React.useState(data);
   const [tempLog, logState] = useTemporaryItem(logs);
   const tableState = useTableState();

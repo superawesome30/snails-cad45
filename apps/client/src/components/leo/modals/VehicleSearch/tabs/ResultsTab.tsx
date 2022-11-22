@@ -12,7 +12,7 @@ import { TabsContent } from "components/shared/TabList";
 import { TruckLogsTable } from "../TruckLogsTable";
 import { CustomFieldsArea } from "../../CustomFieldsArea";
 import { useVehicleLicenses } from "hooks/locale/useVehicleLicenses";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { useRouter } from "next/router";
 import { ModalIds } from "types/ModalIds";
 import { useFeatureEnabled } from "hooks/useFeatureEnabled";
@@ -20,7 +20,7 @@ import { useFeatureEnabled } from "hooks/useFeatureEnabled";
 export function ResultsTab() {
   const { currentResult } = useVehicleSearch();
   const { INSPECTION_STATUS_LABELS, TAX_STATUS_LABELS } = useVehicleLicenses();
-  const { openModal, closeModal } = useModal();
+  const { openModal, closeModal } = useModalActions();
   const { BUSINESS, DMV } = useFeatureEnabled();
 
   const common = useTranslations("Common");

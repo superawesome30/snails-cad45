@@ -2,7 +2,7 @@ import compareDesc from "date-fns/compareDesc";
 import { useTranslations } from "use-intl";
 import { SelectField, Button } from "@snailycad/ui";
 import { ModalIds } from "types/ModalIds";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { AlertModal } from "components/modal/AlertModal";
 import useFetch from "lib/useFetch";
 import { useNameSearch } from "state/search/name-search-state";
@@ -24,7 +24,7 @@ const values = [
 
 export function NameSearchWarrantsTab() {
   const common = useTranslations("Common");
-  const { openModal, closeModal, getPayload } = useModal();
+  const { openModal, closeModal, getPayload } = useModalActions();
   const t = useTranslations();
   const { generateCallsign } = useGenerateCallsign();
   const { state, execute } = useFetch();

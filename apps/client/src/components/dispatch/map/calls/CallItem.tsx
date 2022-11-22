@@ -4,7 +4,7 @@ import { makeUnitName } from "lib/utils";
 import { useGenerateCallsign } from "hooks/useGenerateCallsign";
 import { ModalIds } from "types/ModalIds";
 import { Button } from "@snailycad/ui";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { CaretDownFill } from "react-bootstrap-icons";
 import type { Full911Call } from "state/dispatch/dispatchState";
 import type { MapCallProps } from "./ActiveMapCalls";
@@ -22,7 +22,7 @@ export function CallItem({ call, hasMarker, setMarker }: CallItemProps) {
   const t = useTranslations("Calls");
   const common = useTranslations("Common");
   const { generateCallsign } = useGenerateCallsign();
-  const { openModal } = useModal();
+  const { openModal } = useModalActions();
   const { setCurrentlySelectedCall } = useCall911State();
 
   function handleEdit(call: Full911Call) {

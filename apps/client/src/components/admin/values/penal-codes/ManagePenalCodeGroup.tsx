@@ -1,6 +1,6 @@
 import { Button, Loader, TextField } from "@snailycad/ui";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { Form, Formik } from "formik";
 import useFetch from "lib/useFetch";
 import { useTranslations } from "next-intl";
@@ -16,7 +16,7 @@ interface Props {
 }
 
 export function ManagePenalCodeGroup({ onCreate, onUpdate, onClose, group }: Props) {
-  const { closeModal, isOpen } = useModal();
+  const { closeModal, isOpen } = useModalActions();
   const { state, execute } = useFetch();
   const common = useTranslations("Common");
 

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Button, AsyncListSearchField, Item } from "@snailycad/ui";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { Form, Formik, useFormikContext } from "formik";
 import useFetch from "lib/useFetch";
 import { ModalIds } from "types/ModalIds";
@@ -45,7 +45,7 @@ const CreateCitizenModal = dynamic(
 );
 
 function AutoSubmit() {
-  const { getPayload } = useModal();
+  const { getPayload } = useModalActions();
   const payloadCitizen = getPayload<Citizen>(ModalIds.NameSearch);
   const { submitForm } = useFormikContext();
 
@@ -60,7 +60,7 @@ function AutoSubmit() {
 }
 
 export function NameSearchModal() {
-  const { isOpen, closeModal, getPayload } = useModal();
+  const { isOpen, closeModal, getPayload } = useModalActions();
   const common = useTranslations("Common");
   const cT = useTranslations("Citizen");
   const vT = useTranslations("Vehicles");
@@ -71,7 +71,7 @@ export function NameSearchModal() {
   const { SOCIAL_SECURITY_NUMBERS, CREATE_USER_CITIZEN_LEO } = useFeatureEnabled();
   const { bolos } = useBolos();
 
-  const { openModal } = useModal();
+  const { openModal } = useModalActions();
   const isLeo = router.pathname === "/officer";
   const { results, currentResult, setCurrentResult, setResults } = useNameSearch(
     (state) => ({

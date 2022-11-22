@@ -9,7 +9,7 @@ import { useCall911State } from "state/dispatch/call911State";
 import type { Full911Call } from "state/dispatch/dispatchState";
 import type { ActiveDeputy } from "state/emsFdState";
 import type { ActiveOfficer } from "state/leoState";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { useTranslations } from "use-intl";
 
@@ -24,7 +24,7 @@ const INCOMING_CALL_SRC = "/sounds/incoming-call.mp3" as const;
 export function useActiveCalls({ unit, calls }: UseActiveCallsOptions) {
   const call911State = useCall911State();
   const { user } = useAuth();
-  const { openModal } = useModal();
+  const { openModal } = useModalActions();
   const t = useTranslations();
 
   const shouldPlayAddedToCallSound = user?.soundSettings?.addedToCall ?? false;

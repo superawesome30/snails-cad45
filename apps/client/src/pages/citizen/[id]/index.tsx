@@ -6,7 +6,7 @@ import { PersonFill } from "react-bootstrap-icons";
 import type { GetServerSideProps } from "next";
 import { getSessionUser } from "lib/auth";
 import { Layout } from "components/Layout";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { BreadcrumbItem, Breadcrumbs, Button, buttonVariants } from "@snailycad/ui";
 import useFetch from "lib/useFetch";
 import { getTranslations } from "lib/getTranslation";
@@ -38,7 +38,7 @@ const WeaponsCard = dynamic(
 
 export default function CitizenId() {
   const { execute, state } = useFetch();
-  const { openModal, closeModal } = useModal();
+  const { openModal, closeModal } = useModalActions();
   const t = useTranslations("Citizen");
   const common = useTranslations("Common");
   const router = useRouter();

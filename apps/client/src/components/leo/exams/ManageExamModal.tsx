@@ -10,7 +10,7 @@ import { Loader, Button, SelectField } from "@snailycad/ui";
 import { FormField } from "components/form/FormField";
 import { Select } from "components/form/Select";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { useValues } from "context/ValuesContext";
 import { Form, Formik } from "formik";
 import { handleValidate } from "lib/handleValidate";
@@ -30,7 +30,7 @@ interface Props {
 export function ManageExamModal({ exam, onClose, onCreate, onUpdate }: Props) {
   const common = useTranslations("Common");
   const t = useTranslations();
-  const { isOpen, closeModal } = useModal();
+  const { isOpen, closeModal } = useModalActions();
   const { state, execute } = useFetch();
   const { driverslicenseCategory, license } = useValues();
 

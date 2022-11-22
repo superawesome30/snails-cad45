@@ -7,7 +7,7 @@ import { Table, useTableState } from "components/shared/Table";
 import { yesOrNoText } from "lib/utils";
 import { FullDate } from "components/shared/FullDate";
 import { ModalIds } from "types/ModalIds";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ManageIncidentModal } from "components/leo/incidents/ManageIncidentModal";
 import { useActiveIncidents } from "hooks/realtime/useActiveIncidents";
 import { AlertModal } from "components/modal/AlertModal";
@@ -30,7 +30,7 @@ export function ActiveIncidents() {
   const t = useTranslations("Leo");
   const common = useTranslations("Common");
   const { hasActiveDispatchers } = useActiveDispatchers();
-  const { openModal, closeModal } = useModal();
+  const { openModal, closeModal } = useModalActions();
   const { activeIncidents, setActiveIncidents } = useActiveIncidents();
   const { state, execute } = useFetch();
   const dispatchState = useDispatchState();

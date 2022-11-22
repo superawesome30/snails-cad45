@@ -2,10 +2,10 @@ import { useTranslations } from "next-intl";
 import { useAuth } from "context/AuthContext";
 import { Button } from "@snailycad/ui";
 import { ModalIds } from "types/ModalIds";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 
 export function TwoFactorAuthArea() {
-  const { openModal } = useModal();
+  const { openModal } = useModalActions();
   const t = useTranslations("Account");
   const { user } = useAuth();
   const is2faEnabled = user?.twoFactorEnabled;

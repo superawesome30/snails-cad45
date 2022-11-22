@@ -6,7 +6,7 @@ import type { CombinedLeoUnit, EmsFdDeputy, StatusValue } from "@snailycad/types
 import { useGenerateCallsign } from "hooks/useGenerateCallsign";
 import { Full911Call, useDispatchState } from "state/dispatch/dispatchState";
 import { makeUnitName } from "lib/utils";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { isUnitCombined } from "@snailycad/utils";
 import type { Post911CallEventsData, PutDispatchStatusByUnitId } from "@snailycad/types/api";
@@ -14,7 +14,7 @@ import type { Post911CallEventsData, PutDispatchStatusByUnitId } from "@snailyca
 export function MultiValueContainerContextMenu(props: MultiValueGenericProps<any>) {
   const { codes10 } = useValues();
   const { execute } = useFetch();
-  const { getPayload } = useModal();
+  const { getPayload } = useModalActions();
   const { generateCallsign } = useGenerateCallsign();
   const call = getPayload<Full911Call>(ModalIds.Manage911Call);
   const { activeDeputies, activeOfficers } = useDispatchState();

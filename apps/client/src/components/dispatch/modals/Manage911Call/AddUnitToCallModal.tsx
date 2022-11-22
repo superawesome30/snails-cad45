@@ -1,7 +1,7 @@
 import { useTranslations } from "use-intl";
 import { Loader, Button } from "@snailycad/ui";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { Form, Formik } from "formik";
 import { FormField } from "components/form/FormField";
@@ -21,7 +21,7 @@ interface Props {
 }
 
 export function AddUnitToCallModal({ onClose }: Props) {
-  const { isOpen, closeModal } = useModal();
+  const { isOpen, closeModal } = useModalActions();
   const common = useTranslations("Common");
   const { state, execute } = useFetch();
   const { allOfficers, allDeputies, activeDeputies, activeOfficers } = useDispatchState();

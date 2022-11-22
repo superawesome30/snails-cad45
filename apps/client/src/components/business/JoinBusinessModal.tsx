@@ -1,7 +1,7 @@
 import { Loader, Button } from "@snailycad/ui";
 import { FormField } from "components/form/FormField";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { Form, Formik } from "formik";
 import useFetch from "lib/useFetch";
 import { ModalIds } from "types/ModalIds";
@@ -22,7 +22,7 @@ interface Props {
 
 export function JoinBusinessModal({ onCreate }: Props) {
   const joinableBusinesses = useBusinessState((s) => s.joinableBusinesses);
-  const { isOpen, closeModal } = useModal();
+  const { isOpen, closeModal } = useModalActions();
   const { state, execute } = useFetch();
   const router = useRouter();
   const common = useTranslations("Common");

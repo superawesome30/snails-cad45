@@ -3,7 +3,7 @@ import { Modal } from "components/modal/Modal";
 import { Form, Formik, FormikHelpers } from "formik";
 import { handleValidate } from "lib/handleValidate";
 import useFetch from "lib/useFetch";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { CustomField, CustomFieldCategory } from "@snailycad/types";
 import { useTranslations } from "use-intl";
 import { ModalIds } from "types/ModalIds";
@@ -24,7 +24,7 @@ const CATEGORIES = Object.values(CustomFieldCategory).map((v) => ({
 
 export function ManageCustomFieldModal({ field, onClose, onCreate, onUpdate }: Props) {
   const { state, execute } = useFetch();
-  const { isOpen, closeModal } = useModal();
+  const { isOpen, closeModal } = useModalActions();
   const common = useTranslations("Common");
   const t = useTranslations("Management");
 

@@ -4,7 +4,7 @@ import { Button, Input, Loader } from "@snailycad/ui";
 import { Modal } from "components/modal/Modal";
 import { Form, Formik, FormikHelpers } from "formik";
 import useFetch from "lib/useFetch";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { useTranslations } from "use-intl";
 import { ModalIds } from "types/ModalIds";
 import type * as APITypes from "@snailycad/types/api";
@@ -24,7 +24,7 @@ export function ImportModal<T extends ImportData>({ onImport, id, url }: Props<T
   const [file, setFile] = React.useState<File | null>(null);
 
   const { state, execute } = useFetch();
-  const { isOpen, closeModal } = useModal();
+  const { isOpen, closeModal } = useModalActions();
   const t = useTranslations("Values");
 
   const data = {

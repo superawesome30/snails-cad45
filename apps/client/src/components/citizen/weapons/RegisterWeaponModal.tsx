@@ -8,7 +8,7 @@ import { Loader, Input, Button, Item, AsyncListSearchField } from "@snailycad/ui
 import { Modal } from "components/modal/Modal";
 import useFetch from "lib/useFetch";
 import { useValues } from "src/context/ValuesContext";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { ValueLicenseType, Weapon, WeaponValue } from "@snailycad/types";
 import { handleValidate } from "lib/handleValidate";
@@ -28,7 +28,7 @@ interface Props {
 
 export function RegisterWeaponModal({ weapon, onClose, onCreate, onUpdate }: Props) {
   const { state, execute } = useFetch();
-  const { isOpen, closeModal } = useModal();
+  const { isOpen, closeModal } = useModalActions();
   const { pathname } = useRouter();
   const { CUSTOM_TEXTFIELD_VALUES } = useFeatureEnabled();
 

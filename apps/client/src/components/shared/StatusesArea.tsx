@@ -1,7 +1,7 @@
 import { useListener } from "@casper124578/use-socket.io";
 import { SocketEvents } from "@snailycad/config";
 import { Button } from "@snailycad/ui";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { useValues } from "context/ValuesContext";
 import { classNames } from "lib/classNames";
 import useFetch from "lib/useFetch";
@@ -33,7 +33,7 @@ export function StatusesArea<T extends ActiveOfficer | ActiveDeputy>({
 }: Props<T>) {
   const isMounted = useMounted();
   const { codes10 } = useValues();
-  const { openModal } = useModal();
+  const { openModal } = useModalActions();
   const { execute } = useFetch();
   const { user } = useAuth();
   const router = useRouter();

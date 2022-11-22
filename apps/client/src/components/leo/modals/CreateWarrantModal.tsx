@@ -5,7 +5,7 @@ import { FormField } from "components/form/FormField";
 import { Select } from "components/form/Select";
 import useFetch from "lib/useFetch";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { toastMessage } from "lib/toastMessage";
 import type { PostCreateWarrantData, PutWarrantsData } from "@snailycad/types/api";
@@ -27,7 +27,7 @@ interface Props {
 }
 
 export function CreateWarrantModal({ warrant, readOnly, onClose, onCreate, onUpdate }: Props) {
-  const { isOpen, closeModal, getPayload } = useModal();
+  const { isOpen, closeModal, getPayload } = useModalActions();
   const { state, execute } = useFetch();
   const common = useTranslations("Common");
   const t = useTranslations("Leo");

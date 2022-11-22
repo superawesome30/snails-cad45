@@ -8,7 +8,7 @@ import { FullDate } from "components/shared/FullDate";
 import { TabsContent } from "components/shared/TabList";
 import type { CitizenLog } from "src/pages/officer/supervisor/citizen-logs";
 import { makeUnitName } from "lib/utils";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { ManageRecordModal } from "../modals/ManageRecordModal";
 import useFetch from "lib/useFetch";
@@ -33,7 +33,7 @@ export function ArrestReportsTab({ search, logs: data }: Props) {
   const logs = React.useMemo(() => uniqueList(data), [data]);
   const [tempRecord, setTempRecord] = React.useState<Record | null>(null);
 
-  const { openModal } = useModal();
+  const { openModal } = useModalActions();
   const { generateCallsign } = useGenerateCallsign();
   const t = useTranslations("Leo");
   const common = useTranslations("Common");

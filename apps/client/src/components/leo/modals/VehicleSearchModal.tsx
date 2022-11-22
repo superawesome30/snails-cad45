@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Loader, Button, Item, AsyncListSearchField } from "@snailycad/ui";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { Form, Formik } from "formik";
 import useFetch from "lib/useFetch";
 import { ModalIds } from "types/ModalIds";
@@ -36,7 +36,7 @@ export function VehicleSearchModal({ id = ModalIds.VehicleSearch }: Props) {
   );
   const { bolos } = useBolos();
 
-  const { isOpen, openModal, closeModal } = useModal();
+  const { isOpen, openModal, closeModal } = useModalActions();
   const common = useTranslations("Common");
   const vT = useTranslations("Vehicles");
   const t = useTranslations("Leo");

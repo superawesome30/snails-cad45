@@ -6,7 +6,7 @@ import { useBusinessState } from "state/businessState";
 import { Layout } from "components/Layout";
 import { Button } from "@snailycad/ui";
 import { useTranslations } from "use-intl";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { BusinessCard } from "components/business/BusinessCard";
 import dynamic from "next/dynamic";
@@ -24,7 +24,7 @@ const JoinBusinessModal = dynamic(
 );
 
 export default function BusinessPage(props: GetBusinessesData) {
-  const { openModal } = useModal();
+  const { openModal } = useModalActions();
   const t = useTranslations("Business");
   const [businesses, setBusinesses] = React.useState(props.businesses);
   const setJoinableBusinesses = useBusinessState((s) => s.setJoinableBusinesses);

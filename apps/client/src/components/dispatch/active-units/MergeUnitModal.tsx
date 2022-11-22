@@ -6,7 +6,7 @@ import { Modal } from "components/modal/Modal";
 import { Form, Formik } from "formik";
 import useFetch from "lib/useFetch";
 import { useTranslations } from "next-intl";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { Select } from "components/form/Select";
 import { useActiveOfficers } from "hooks/realtime/useActiveOfficers";
@@ -24,7 +24,7 @@ interface Props {
 
 export function MergeUnitModal({ unit, isDispatch, onClose }: Props) {
   const { activeOfficer, setActiveOfficer } = useLeoState();
-  const { isOpen, closeModal } = useModal();
+  const { isOpen, closeModal } = useModalActions();
   const { activeOfficers, setActiveOfficers } = useActiveOfficers();
   const { state, execute } = useFetch();
   const common = useTranslations("Common");

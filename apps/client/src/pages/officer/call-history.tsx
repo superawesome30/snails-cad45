@@ -10,7 +10,7 @@ import { Table, useAsyncTable, useTableState } from "components/shared/Table";
 import { useGenerateCallsign } from "hooks/useGenerateCallsign";
 import { Full911Call, useDispatchState } from "state/dispatch/dispatchState";
 import { Input, Loader, Button } from "@snailycad/ui";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { LinkCallToIncidentModal } from "components/leo/call-history/LinkCallToIncidentModal";
 import { FormField } from "components/form/FormField";
@@ -62,7 +62,7 @@ export default function CallHistory({ data, incidents, officers, deputies }: Pro
   const { state, execute } = useFetch();
   const [tempCall, callState] = useTemporaryItem(asyncTable.items);
 
-  const { openModal, closeModal } = useModal();
+  const { openModal, closeModal } = useModalActions();
   const t = useTranslations("Calls");
   const leo = useTranslations("Leo");
   const common = useTranslations("Common");

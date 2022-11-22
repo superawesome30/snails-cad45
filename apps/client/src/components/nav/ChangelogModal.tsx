@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Modal } from "components/modal/Modal";
 import { useAuth } from "context/AuthContext";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { Loader } from "@snailycad/ui";
 import ReactMarkdown from "react-markdown";
@@ -12,7 +12,7 @@ import { remarkGitHubReferences } from "lib/editor/remarkGitHubReferences";
 import useFetch from "lib/useFetch";
 
 export function ChangelogModal() {
-  const { isOpen, closeModal } = useModal();
+  const { isOpen, closeModal } = useModalActions();
   const { cad } = useAuth();
   const [body, setBody] = React.useState<string | null>(null);
   const { state, execute } = useFetch();

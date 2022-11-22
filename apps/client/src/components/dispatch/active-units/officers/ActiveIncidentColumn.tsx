@@ -3,7 +3,7 @@ import type { LeoIncident } from "@snailycad/types";
 import { useTranslations } from "next-intl";
 import { ModalIds } from "types/ModalIds";
 import { ManageIncidentModal } from "components/leo/incidents/ManageIncidentModal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { Button } from "@snailycad/ui";
 import { useActiveDispatchers } from "hooks/realtime/useActiveDispatchers";
 
@@ -16,7 +16,7 @@ export function ActiveIncidentColumn({ incident, isDispatch }: Props) {
   const [tempIncident, setTempIncident] = React.useState<LeoIncident | null>(null);
 
   const common = useTranslations("Common");
-  const { openModal } = useModal();
+  const { openModal } = useModalActions();
 
   const { hasActiveDispatchers } = useActiveDispatchers();
   const isBtnDisabled = !hasActiveDispatchers && isDispatch;

@@ -1,7 +1,7 @@
 import type { Note } from "@snailycad/types";
 import { Loader, Button, TextField } from "@snailycad/ui";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { Form, Formik } from "formik";
 import useFetch from "lib/useFetch";
 import { useTranslations } from "next-intl";
@@ -21,7 +21,7 @@ interface Props {
 }
 
 export function ManageNoteModal({ onCreate, onUpdate, onClose, currentResult, type, note }: Props) {
-  const { isOpen, closeModal } = useModal();
+  const { isOpen, closeModal } = useModalActions();
   const common = useTranslations("Common");
   const t = useTranslations("Leo");
   const { state, execute } = useFetch();

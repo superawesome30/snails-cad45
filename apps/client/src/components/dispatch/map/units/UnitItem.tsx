@@ -6,7 +6,7 @@ import { CaretDownFill } from "react-bootstrap-icons";
 import type { MapPlayer } from "types/Map";
 import { Button } from "@snailycad/ui";
 import { useTranslations } from "next-intl";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import type { EmsFdDeputy, Officer } from "@snailycad/types";
 import { Infofield } from "components/shared/Infofield";
@@ -21,7 +21,7 @@ interface CallItemProps {
 export function UnitItem({ setTempUnit, player }: CallItemProps) {
   const { generateCallsign } = useGenerateCallsign();
   const common = useTranslations("Common");
-  const { openModal } = useModal();
+  const { openModal } = useModalActions();
   const t = useTranslations("Leo");
   const { RADIO_CHANNEL_MANAGEMENT } = useFeatureEnabled();
 

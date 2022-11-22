@@ -4,7 +4,7 @@ import { FullDate } from "components/shared/FullDate";
 import { Table, useTableState } from "components/shared/Table";
 import { useTranslations } from "next-intl";
 import { ManageCourtDateModal } from "./ManageCourtDateModal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { AlertModal } from "components/modal/AlertModal";
 import { useTemporaryItem } from "hooks/shared/useTemporaryItem";
@@ -20,7 +20,7 @@ export function CourtEntryDates({ onUpdate, onDelete, onCreate, dates }: Props) 
   const [tempDate, dateState] = useTemporaryItem(dates);
   const common = useTranslations("Common");
   const t = useTranslations("Courthouse");
-  const { closeModal, openModal } = useModal();
+  const { closeModal, openModal } = useModalActions();
   const tableState = useTableState();
 
   function deleteCourtDate() {

@@ -1,11 +1,11 @@
 import { Modal } from "components/modal/Modal";
 import { toastMessage } from "lib/toastMessage";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { LoginForm } from "./LoginForm";
 
 export function ReauthorizeSessionModal() {
-  const { isOpen, closeModal } = useModal();
+  const { isOpen, closeModal } = useModalActions();
 
   function handleSubmit() {
     toastMessage({

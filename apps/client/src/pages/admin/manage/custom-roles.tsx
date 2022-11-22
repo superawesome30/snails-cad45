@@ -9,7 +9,7 @@ import { requestAll } from "lib/utils";
 import { Title } from "components/shared/Title";
 import { Permissions } from "@snailycad/permissions";
 import { Button } from "@snailycad/ui";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { Table, useTableState } from "components/shared/Table";
 import { ModalIds } from "types/ModalIds";
 import { AlertModal } from "components/modal/AlertModal";
@@ -30,7 +30,7 @@ export default function ManageCustomRoles({ customRoles: data }: Props) {
 
   const { state, execute } = useFetch();
   const { hasPermissions } = usePermission();
-  const { openModal, closeModal } = useModal();
+  const { openModal, closeModal } = useModalActions();
   const t = useTranslations("Management");
   const common = useTranslations("Common");
   const hasManagePermissions = hasPermissions([Permissions.ManageCustomRoles], true);

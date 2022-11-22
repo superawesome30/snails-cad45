@@ -15,7 +15,7 @@ import { Select } from "components/form/Select";
 import { Modal } from "components/modal/Modal";
 import useFetch from "lib/useFetch";
 import { useValues } from "src/context/ValuesContext";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import {
   RegisteredVehicle,
@@ -46,7 +46,7 @@ interface Props {
 
 export function RegisterVehicleModal({ vehicle, onClose, onCreate, onUpdate }: Props) {
   const { state, execute } = useFetch();
-  const { isOpen, closeModal } = useModal();
+  const { isOpen, closeModal } = useModalActions();
   const t = useTranslations("Citizen");
   const tVehicle = useTranslations("Vehicles");
   const common = useTranslations("Common");

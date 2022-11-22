@@ -6,7 +6,7 @@ import { Modal } from "components/modal/Modal";
 import { getSessionUser } from "lib/auth";
 import { getTranslations } from "lib/getTranslation";
 import type { GetServerSideProps } from "next";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { WhitelistStatus, Rank } from "@snailycad/types";
 import useFetch from "lib/useFetch";
 import { AdminLayout } from "components/admin/AdminLayout";
@@ -33,7 +33,7 @@ export default function ManageBusinesses({ businesses: data }: Props) {
   const { cad } = useAuth();
 
   const { state, execute } = useFetch();
-  const { isOpen, openModal, closeModal } = useModal();
+  const { isOpen, openModal, closeModal } = useModalActions();
   const { hasPermissions } = usePermission();
   const tableState = useTableState();
 

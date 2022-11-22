@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import useFetch from "lib/useFetch";
 import { ModalIds } from "types/ModalIds";
 import { Loader, Button, buttonVariants, TextField } from "@snailycad/ui";
@@ -50,7 +50,7 @@ export function AllCitizensTab({ citizens: initialData, totalCount, setCitizens 
   const reasonRef = React.useRef<HTMLInputElement>(null);
 
   const { state, execute } = useFetch();
-  const { isOpen, openModal, closeModal } = useModal();
+  const { isOpen, openModal, closeModal } = useModalActions();
 
   const tCitizen = useTranslations("Citizen");
   const t = useTranslations("Management");

@@ -2,7 +2,7 @@ import * as React from "react";
 import { CustomFieldCategory } from "@snailycad/types";
 import { Button } from "@snailycad/ui";
 import { Table, useTableState } from "components/shared/Table";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { useTranslations } from "next-intl";
 import { NameSearchResult, useNameSearch } from "state/search/name-search-state";
 import { useVehicleSearch, VehicleSearchResult } from "state/search/vehicleSearchState";
@@ -44,7 +44,7 @@ export function CustomFieldResults({ results }: Props) {
 }
 
 function CitizenResults({ results }: any) {
-  const { openModal, closeModal } = useModal();
+  const { openModal, closeModal } = useModalActions();
   const setCurrentResult = useNameSearch((state) => state.setCurrentResult);
   const t = useTranslations("Leo");
   const common = useTranslations("Common");
@@ -82,7 +82,7 @@ function CitizenResults({ results }: any) {
 }
 
 function WeaponResults({ results }: any) {
-  const { openModal, closeModal } = useModal();
+  const { openModal, closeModal } = useModalActions();
   const { setCurrentResult } = useWeaponSearch();
   const t = useTranslations();
   const tableState = useTableState();
@@ -118,7 +118,7 @@ function WeaponResults({ results }: any) {
 }
 
 function VehicleResults({ results }: any) {
-  const { openModal, closeModal } = useModal();
+  const { openModal, closeModal } = useModalActions();
   const { setCurrentResult } = useVehicleSearch();
   const t = useTranslations();
   const tableState = useTableState();

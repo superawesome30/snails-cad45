@@ -4,7 +4,7 @@ import { Button, TextField } from "@snailycad/ui";
 import { getSessionUser } from "lib/auth";
 import { getTranslations } from "lib/getTranslation";
 import type { GetServerSideProps } from "next";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import {
   DriversLicenseCategoryType,
   Rank,
@@ -47,7 +47,7 @@ export default function DriversLicenseCategories({ pathValues: { type, values: d
   } | null>(null);
   const { state, execute } = useFetch();
 
-  const { isOpen, openModal, closeModal } = useModal();
+  const { isOpen, openModal, closeModal } = useModalActions();
   const t = useTranslations("Values");
   const typeT = useTranslations(type);
   const common = useTranslations("Common");

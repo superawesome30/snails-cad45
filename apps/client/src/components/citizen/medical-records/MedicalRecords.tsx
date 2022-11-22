@@ -2,7 +2,7 @@ import { useTranslations } from "use-intl";
 import { Button } from "@snailycad/ui";
 import type { MedicalRecord, Value } from "@snailycad/types";
 import { ModalIds } from "types/ModalIds";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ManageMedicalRecordsModal } from "./ManageMedicalRecordsModal";
 import { AlertModal } from "components/modal/AlertModal";
 import useFetch from "lib/useFetch";
@@ -14,7 +14,7 @@ import { FullDate } from "components/shared/FullDate";
 
 export function MedicalRecords() {
   const { state, execute } = useFetch();
-  const { openModal, closeModal } = useModal();
+  const { openModal, closeModal } = useModalActions();
   const t = useTranslations("MedicalRecords");
   const common = useTranslations("Common");
   const { citizen, setCurrentCitizen } = useCitizen(false);

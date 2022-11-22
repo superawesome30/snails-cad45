@@ -1,7 +1,7 @@
 import { useTranslations } from "use-intl";
 import { Button } from "@snailycad/ui";
 import { ModalIds } from "types/ModalIds";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { LicenseInitialValues, ManageLicensesModal } from "./ManageLicensesModal";
 import { CitizenWithVehAndWep, useCitizen } from "context/CitizenContext";
 import { useFeatureEnabled } from "hooks/useFeatureEnabled";
@@ -14,7 +14,7 @@ import { FullDate } from "components/shared/FullDate";
 const types = ["driversLicense", "pilotLicense", "waterLicense", "weaponLicense"] as const;
 
 export function LicensesCard() {
-  const { openModal, closeModal } = useModal();
+  const { openModal, closeModal } = useModalActions();
   const { citizen, setCurrentCitizen } = useCitizen(false);
   const { ALLOW_CITIZEN_UPDATE_LICENSE, LICENSE_EXAMS, COMMON_CITIZEN_CARDS } = useFeatureEnabled();
   const t = useTranslations("Citizen");

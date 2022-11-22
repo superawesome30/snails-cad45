@@ -18,7 +18,7 @@ import { Status } from "components/shared/Status";
 import { usePermission, Permissions } from "hooks/usePermission";
 import { useFeatureEnabled } from "hooks/useFeatureEnabled";
 import { classNames } from "lib/classNames";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { AlertModal } from "components/modal/AlertModal";
 import { OfficerRank } from "components/leo/OfficerRank";
@@ -51,7 +51,7 @@ export function AllUnitsTab({ search, units }: Props) {
   const { generateCallsign } = useGenerateCallsign();
   const router = useRouter();
   const { DIVISIONS, BADGE_NUMBERS } = useFeatureEnabled();
-  const { openModal, closeModal } = useModal();
+  const { openModal, closeModal } = useModalActions();
 
   function handleDeleteClick(unit: Unit) {
     unitState.setTempId(unit.id);

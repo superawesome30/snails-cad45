@@ -8,7 +8,7 @@ import { useActiveDispatchers } from "hooks/realtime/useActiveDispatchers";
 import * as modalButtons from "components/modal-buttons/buttons";
 import { ModalButton } from "components/modal-buttons/ModalButton";
 import { ModalIds } from "types/ModalIds";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { TonesModal } from "./modals/TonesModal";
 import type {
   PostDispatchDispatchersStateData,
@@ -40,7 +40,7 @@ export function DispatchModalButtons() {
   const { activeDispatchers, setActiveDispatchers } = useActiveDispatchers();
   const { user } = useAuth();
   const { ACTIVE_DISPATCHERS, TONES } = useFeatureEnabled();
-  const { openModal } = useModal();
+  const { openModal } = useModalActions();
   const { calls, setCalls } = useCall911State();
 
   const isActive = ACTIVE_DISPATCHERS ? activeDispatchers.some((v) => v.userId === user?.id) : true;

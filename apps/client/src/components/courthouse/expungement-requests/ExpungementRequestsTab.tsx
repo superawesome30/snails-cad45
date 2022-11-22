@@ -7,7 +7,7 @@ import dynamic from "next/dynamic";
 import { getTitles } from "./RequestExpungement";
 import { Status } from "components/shared/Status";
 import { FullDate } from "components/shared/FullDate";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { Button } from "@snailycad/ui";
 import { ModalIds } from "types/ModalIds";
 import type { GetExpungementRequestsData } from "@snailycad/types/api";
@@ -25,7 +25,7 @@ export function ExpungementRequestsTab(props: Props) {
   const common = useTranslations("Common");
   const t = useTranslations("Courthouse");
   const leo = useTranslations("Leo");
-  const { openModal } = useModal();
+  const { openModal } = useModalActions();
   const tableState = useTableState();
 
   return (

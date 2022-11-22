@@ -1,7 +1,7 @@
 import { TabsContent } from "components/shared/TabList";
 import { useTranslations } from "use-intl";
 import { useBusinessState } from "state/businessState";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { AlertModal } from "components/modal/AlertModal";
 import useFetch from "lib/useFetch";
@@ -17,7 +17,7 @@ import { AddressPostalSelect } from "components/form/select/PostalSelect";
 
 export function ManageBusinessTab() {
   const { state, execute } = useFetch();
-  const { openModal } = useModal();
+  const { openModal } = useModalActions();
   const common = useTranslations("Common");
   const t = useTranslations("Business");
   const router = useRouter();

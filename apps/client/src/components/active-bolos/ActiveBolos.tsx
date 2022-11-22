@@ -1,5 +1,5 @@
 import { AlertModal } from "components/modal/AlertModal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { useBolos } from "hooks/realtime/useBolos";
 import useFetch from "lib/useFetch";
 import * as React from "react";
@@ -29,7 +29,7 @@ interface Props {
 
 export function ActiveBolos({ initialBolos }: Props) {
   const { state, execute } = useFetch();
-  const { closeModal } = useModal();
+  const { closeModal } = useModalActions();
   const bolosState = useBolos();
   const isMounted = useMounted();
   const handleBOLOFilter = useBOLOFilters();

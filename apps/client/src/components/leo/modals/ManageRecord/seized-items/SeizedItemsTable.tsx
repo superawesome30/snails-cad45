@@ -1,7 +1,7 @@
 import { Button } from "@snailycad/ui";
 import { FormField } from "components/form/FormField";
 import { Table, useTableState } from "components/shared/Table";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { useFormikContext } from "formik";
 import { yesOrNoText } from "lib/utils";
 import { useTranslations } from "next-intl";
@@ -12,7 +12,7 @@ import { useTemporaryItem } from "hooks/shared/useTemporaryItem";
 
 export function SeizedItemsTable({ isReadOnly }: { isReadOnly?: boolean }) {
   const { values, setFieldValue } = useFormikContext<{ seizedItems: SeizedItem[] }>();
-  const { openModal } = useModal();
+  const { openModal } = useModalActions();
   const [tempItem, itemState] = useTemporaryItem(values.seizedItems);
 
   const tableState = useTableState();

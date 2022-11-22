@@ -5,7 +5,7 @@ import { FullDate } from "components/shared/FullDate";
 import { Table, useTableState } from "components/shared/Table";
 import { TabsContent } from "components/shared/TabList";
 import { useTranslations } from "next-intl";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import type { NameSearchResult } from "state/search/name-search-state";
 import type { VehicleSearchResult } from "state/search/vehicleSearchState";
 import { ModalIds } from "types/ModalIds";
@@ -28,7 +28,7 @@ export function NotesTab<T extends VehicleSearchResult | NameSearchResult>({
 }: Props<T>) {
   const [open, setOpen] = React.useState(false);
   const t = useTranslations();
-  const { openModal, closeModal } = useModal();
+  const { openModal, closeModal } = useModalActions();
   const { state, execute } = useFetch();
 
   const tableState = useTableState();

@@ -13,7 +13,7 @@ import { FullDate } from "components/shared/FullDate";
 import { Permissions } from "@snailycad/permissions";
 import { Status } from "components/shared/Status";
 import { ManageExamModal } from "components/leo/exams/ManageExamModal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { usePermission } from "hooks/usePermission";
 import { AlertModal } from "components/modal/AlertModal";
@@ -30,7 +30,7 @@ interface Props {
 export default function CitizenLogs({ data }: Props) {
   const [search, setSearch] = React.useState("");
   const { hasPermissions } = usePermission();
-  const { openModal, closeModal } = useModal();
+  const { openModal, closeModal } = useModalActions();
   const t = useTranslations();
   const common = useTranslations("Common");
   const { state, execute } = useFetch();

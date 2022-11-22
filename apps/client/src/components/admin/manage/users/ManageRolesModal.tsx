@@ -1,6 +1,6 @@
 import type { CustomRole, User } from "@snailycad/types";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { useTranslations } from "next-intl";
 import { ModalIds } from "types/ModalIds";
 import { FormField } from "components/form/FormField";
@@ -19,7 +19,7 @@ interface Props {
 export function ManageRolesModal({ roles, user, onUpdate }: Props) {
   const t = useTranslations("Management");
   const common = useTranslations("Common");
-  const { closeModal, isOpen } = useModal();
+  const { closeModal, isOpen } = useModalActions();
   const { state, execute } = useFetch();
 
   async function onSubmit(data: typeof INITIAL_VALUES) {

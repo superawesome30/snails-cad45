@@ -1,7 +1,7 @@
 import { Loader, Button } from "@snailycad/ui";
 import { FormField } from "components/form/FormField";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { Form, Formik, FormikHelpers } from "formik";
 import useFetch from "lib/useFetch";
 import { useBusinessState } from "state/businessState";
@@ -24,7 +24,7 @@ interface Props {
 
 export function ManageEmployeeModal({ onClose, onUpdate, employee }: Props) {
   const { currentBusiness, currentEmployee } = useBusinessState();
-  const { isOpen, closeModal } = useModal();
+  const { isOpen, closeModal } = useModalActions();
   const { state, execute } = useFetch();
   const common = useTranslations("Common");
   const t = useTranslations("Business");

@@ -8,7 +8,7 @@ import { getTranslations } from "lib/getTranslation";
 import type { GetServerSideProps } from "next";
 import type { TaxiCall, TowCall } from "@snailycad/types";
 import { Button } from "@snailycad/ui";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { requestAll } from "lib/utils";
 import { Title } from "components/shared/Title";
@@ -21,7 +21,7 @@ interface Props {
 }
 
 export default function Tow(props: Props) {
-  const { openModal } = useModal();
+  const { openModal } = useModalActions();
   const [calls, setCalls] = React.useState(props.calls);
   const t = useTranslations("Calls");
 

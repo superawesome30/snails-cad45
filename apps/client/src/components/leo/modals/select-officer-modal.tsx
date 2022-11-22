@@ -3,7 +3,7 @@ import { Loader, Button, AsyncListSearchField, Item } from "@snailycad/ui";
 import { FormField } from "components/form/FormField";
 import { Select } from "components/form/Select";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { Form, Formik, FormikHelpers } from "formik";
 import { handleValidate } from "lib/handleValidate";
 import useFetch from "lib/useFetch";
@@ -18,7 +18,7 @@ import type { PutDispatchStatusByUnitId } from "@snailycad/types/api";
 
 export function SelectOfficerModal() {
   const { userOfficers, setActiveOfficer } = useLeoState();
-  const { isOpen, closeModal, getPayload } = useModal();
+  const { isOpen, closeModal, getPayload } = useModalActions();
   const common = useTranslations("Common");
   const error = useTranslations("Errors");
   const t = useTranslations("Leo");

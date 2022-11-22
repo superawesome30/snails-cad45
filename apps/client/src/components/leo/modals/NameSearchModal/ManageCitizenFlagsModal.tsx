@@ -3,7 +3,7 @@ import { Button } from "@snailycad/ui";
 import { FormField } from "components/form/FormField";
 import { Select } from "components/form/Select";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { useValues } from "context/ValuesContext";
 import { Form, Formik } from "formik";
 import useFetch from "lib/useFetch";
@@ -14,7 +14,7 @@ import type { PutSearchActionsCitizenFlagsData } from "@snailycad/types/api";
 import shallow from "zustand/shallow";
 
 export function ManageCitizenFlagsModal() {
-  const { isOpen, closeModal } = useModal();
+  const { isOpen, closeModal } = useModalActions();
   const common = useTranslations("Common");
   const t = useTranslations("Leo");
   const veh = useTranslations("Vehicles");

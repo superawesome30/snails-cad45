@@ -1,13 +1,13 @@
 import { useTranslations } from "use-intl";
 import { Button } from "@snailycad/ui";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { useNotepad } from "hooks/shared/useNotepad";
 import { ModalIds } from "types/ModalIds";
 import { DEFAULT_EDITOR_DATA, Editor } from "components/editor/Editor";
 
 export function NotepadModal() {
-  const { isOpen, closeModal } = useModal();
+  const { isOpen, closeModal } = useModalActions();
   const [value, setValue] = useNotepad();
   const common = useTranslations("Common");
 

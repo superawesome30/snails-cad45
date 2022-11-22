@@ -20,7 +20,7 @@ import { useSignal100 } from "hooks/shared/useSignal100";
 import { usePanicButton } from "hooks/shared/usePanicButton";
 import { Title } from "components/shared/Title";
 import { UtilityPanel } from "components/shared/UtilityPanel";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { defaultPermissions, Permissions } from "@snailycad/permissions";
 import { useNameSearch } from "state/search/name-search-state";
@@ -111,7 +111,7 @@ export default function OfficerDashboard({
   const signal100 = useSignal100();
   const tones = useTones("leo");
   const panic = usePanicButton();
-  const { isOpen } = useModal();
+  const { isOpen } = useModalActions();
   const { LEO_TICKETS, ACTIVE_WARRANTS, CALLS_911 } = useFeatureEnabled();
   const { hasPermissions } = usePermission();
   const isAdmin = hasPermissions(

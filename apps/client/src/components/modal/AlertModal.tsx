@@ -1,7 +1,7 @@
 import type * as React from "react";
 import { Loader, Button } from "@snailycad/ui";
 import { classNames } from "lib/classNames";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { useTranslations } from "use-intl";
 import { Modal, ModalProps } from "./Modal";
 import type { ModalIds } from "types/ModalIds";
@@ -19,7 +19,7 @@ type Props = Pick<ModalProps, "title" | "className"> & {
 
 export function AlertModal(props: Props) {
   const common = useTranslations("Common");
-  const { closeModal, isOpen } = useModal();
+  const { closeModal, isOpen } = useModalActions();
 
   function handleClose() {
     props.onClose?.();

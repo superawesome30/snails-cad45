@@ -5,7 +5,7 @@ import { Record, RecordType } from "@snailycad/types";
 import { useTranslations } from "use-intl";
 import { Button } from "@snailycad/ui";
 import { ModalIds } from "types/ModalIds";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { AlertModal } from "components/modal/AlertModal";
 import useFetch from "lib/useFetch";
 import { useNameSearch } from "state/search/name-search-state";
@@ -24,7 +24,7 @@ import shallow from "zustand/shallow";
 export function RecordsTab({ records, isCitizen }: { records: Record[]; isCitizen?: boolean }) {
   const t = useTranslations();
   const { state, execute } = useFetch();
-  const { getPayload, closeModal } = useModal();
+  const { getPayload, closeModal } = useModalActions();
   const { currentResult, setCurrentResult } = useNameSearch(
     (state) => ({
       currentResult: state.currentResult,
@@ -141,7 +141,7 @@ export function RecordsTable({
   data: Record[];
 }) {
   const common = useTranslations("Common");
-  const { openModal } = useModal();
+  const { openModal } = useModalActions();
   const t = useTranslations();
   const router = useRouter();
 

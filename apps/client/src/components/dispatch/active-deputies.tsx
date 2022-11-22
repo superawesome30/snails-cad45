@@ -2,7 +2,7 @@ import * as React from "react";
 import { useTranslations } from "use-intl";
 import { Button } from "@snailycad/ui";
 import { ManageUnitModal } from "./modals/ManageUnit";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import type { ActiveDeputy } from "state/emsFdState";
 import { useActiveDeputies } from "hooks/realtime/useActiveDeputies";
@@ -41,7 +41,7 @@ function ActiveDeputies({ initialDeputies }: Props) {
 
   const t = useTranslations();
   const common = useTranslations("Common");
-  const { openModal } = useModal();
+  const { openModal } = useModalActions();
   const { generateCallsign } = useGenerateCallsign();
   const { user } = useAuth();
   const { hasActiveDispatchers } = useActiveDispatchers();

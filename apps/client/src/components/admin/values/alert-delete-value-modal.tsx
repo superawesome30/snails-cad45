@@ -4,7 +4,7 @@ import { ModalIds } from "types/ModalIds";
 import { useTranslations } from "use-intl";
 import { hasValueObj, isBaseValue } from "@snailycad/utils/typeguards";
 import type { DeleteValueByIdData } from "@snailycad/types/api";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import type { AnyValue, ValueType } from "@snailycad/types";
 import type { useAsyncTable } from "components/shared/Table";
 import type { useTemporaryItem } from "hooks/shared/useTemporaryItem";
@@ -19,7 +19,7 @@ export function AlertDeleteValueModal<T extends AnyValue>(props: AlertDeleteValu
   const { state, execute } = useFetch();
   const t = useTranslations("Values");
   const typeT = useTranslations(props.type);
-  const { closeModal } = useModal();
+  const { closeModal } = useModalActions();
   const [tempValue, valueState] = props.valueState;
 
   async function handleDelete() {

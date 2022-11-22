@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Button, Loader, TextField } from "@snailycad/ui";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { Form, Formik, FormikHelpers } from "formik";
 import useFetch from "lib/useFetch";
 import { useTranslations } from "next-intl";
@@ -30,7 +30,7 @@ export function Manage2FAModal() {
 
   const common = useTranslations("Common");
   const t = useTranslations("Account");
-  const { isOpen, closeModal, getPayload } = useModal();
+  const { isOpen, closeModal, getPayload } = useModalActions();
   const shouldDisable = getPayload<boolean>(ModalIds.Manage2FA);
 
   const { state, execute } = useFetch();

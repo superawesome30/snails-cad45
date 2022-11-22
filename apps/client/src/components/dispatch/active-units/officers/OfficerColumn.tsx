@@ -9,7 +9,7 @@ import { isUnitCombined, isUnitOfficer } from "@snailycad/utils";
 import { useActiveOfficers } from "hooks/realtime/useActiveOfficers";
 import { ActiveOfficer, useLeoState } from "state/leoState";
 import { ArrowRight } from "react-bootstrap-icons";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { useRouter } from "next/router";
 import { useTranslations } from "next-intl";
@@ -32,7 +32,7 @@ interface Props {
 export function OfficerColumn({ officer, nameAndCallsign, setTempUnit }: Props) {
   const { activeOfficers, setActiveOfficers } = useActiveOfficers();
 
-  const { openModal } = useModal();
+  const { openModal } = useModalActions();
   const { setStatus } = useUnitStatusChange({ units: activeOfficers, setUnits: setActiveOfficers });
   const { activeOfficer } = useLeoState();
   const { makeImageUrl } = useImageUrl();

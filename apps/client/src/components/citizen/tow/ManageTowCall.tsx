@@ -4,7 +4,7 @@ import { FormField } from "components/form/FormField";
 import { AlertModal } from "components/modal/AlertModal";
 import { dataToSlate, Editor } from "components/editor/Editor";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { Form, Formik } from "formik";
 import { handleValidate } from "lib/handleValidate";
 import useFetch from "lib/useFetch";
@@ -37,7 +37,7 @@ interface Props {
 export function ManageCallModal({ onDelete, onUpdate, onClose, isTow: tow, call }: Props) {
   const common = useTranslations("Common");
   const t = useTranslations("Calls");
-  const { isOpen, closeModal, openModal } = useModal();
+  const { isOpen, closeModal, openModal } = useModalActions();
   const { state, execute } = useFetch();
   const router = useRouter();
 

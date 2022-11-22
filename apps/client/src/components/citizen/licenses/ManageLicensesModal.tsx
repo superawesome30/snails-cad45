@@ -1,7 +1,7 @@
 import { Form, Formik } from "formik";
 import { useTranslations } from "use-intl";
 import { LICENSE_SCHEMA } from "@snailycad/schemas";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { Modal } from "components/modal/Modal";
 import { ModalIds } from "types/ModalIds";
 import type { SelectValue } from "components/form/Select";
@@ -38,7 +38,7 @@ export function ManageLicensesModal({
   allowRemoval = true,
   onSubmit,
 }: Props) {
-  const { isOpen, closeModal } = useModal();
+  const { isOpen, closeModal } = useModalActions();
   const common = useTranslations("Common");
   const t = useTranslations("Citizen");
 

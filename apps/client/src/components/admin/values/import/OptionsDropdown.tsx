@@ -2,7 +2,7 @@ import { ThreeDots } from "react-bootstrap-icons";
 import { useTranslations } from "next-intl";
 import { Button } from "@snailycad/ui";
 import { ModalIds } from "types/ModalIds";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { useDownload } from "@casper124578/useful";
 import { Dropdown } from "components/Dropdown";
 import type { PenalCode, ValueType, AnyValue } from "@snailycad/types";
@@ -17,7 +17,7 @@ interface Props {
 
 export function OptionsDropdown({ type, values }: Props) {
   const t = useTranslations("Values");
-  const { openModal } = useModal();
+  const { openModal } = useModalActions();
   const download = useDownload();
 
   function handleExport() {

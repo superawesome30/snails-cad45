@@ -3,7 +3,7 @@ import { useTranslations } from "use-intl";
 import { Button, TextField } from "@snailycad/ui";
 import { FormField } from "components/form/FormField";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import type { SeizedItem } from "@snailycad/types";
 import { Toggle } from "components/form/Toggle";
@@ -14,7 +14,7 @@ interface Props {
 }
 
 export function ManageSeizedItemsModal({ item, onClose }: Props) {
-  const { isOpen, closeModal } = useModal();
+  const { isOpen, closeModal } = useModalActions();
   const common = useTranslations("Common");
   const t = useTranslations("Leo");
   const { values, setFieldValue } = useFormikContext<{ seizedItems: SeizedItem[] }>();

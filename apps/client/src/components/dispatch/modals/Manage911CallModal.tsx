@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useTranslations } from "use-intl";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import useFetch from "lib/useFetch";
 import type { Full911Call } from "state/dispatch/dispatchState";
@@ -31,7 +31,7 @@ interface Props {
 export function Manage911CallModal({ setCall, forceOpen, call, onClose }: Props) {
   const [showAlert, setShowAlert] = React.useState(false);
 
-  const { isOpen, closeModal } = useModal();
+  const { isOpen, closeModal } = useModalActions();
   const t = useTranslations("Calls");
   const { state, execute } = useFetch();
   const { setCalls, calls } = useCall911State();

@@ -5,7 +5,7 @@ import { useFeatureEnabled } from "hooks/useFeatureEnabled";
 import { useTranslations } from "use-intl";
 import { Button } from "@snailycad/ui";
 import { useVehicleSearch, VehicleSearchResult } from "state/search/vehicleSearchState";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { useNameSearch } from "state/search/name-search-state";
 import { ModalIds } from "types/ModalIds";
 
@@ -16,7 +16,7 @@ export function NameSearchVehiclesTab() {
   const common = useTranslations("Common");
   const { DMV } = useFeatureEnabled();
   const currentResult = useNameSearch((state) => state.currentResult);
-  const { openModal } = useModal();
+  const { openModal } = useModalActions();
   const { setCurrentResult: setVehicleResult } = useVehicleSearch();
   const tableState = useTableState();
 

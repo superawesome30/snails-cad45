@@ -2,7 +2,7 @@ import { Modal } from "components/modal/Modal";
 import { Button, Loader, SelectField } from "@snailycad/ui";
 import useFetch from "lib/useFetch";
 import { BaseCitizen, Record, ReleaseType } from "@snailycad/types";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { useTranslations } from "next-intl";
 import { Form, Formik, FormikHelpers } from "formik";
@@ -28,7 +28,7 @@ export function ReleaseCitizenModal({ onSuccess, citizen }: Props) {
   const t = useTranslations("Leo");
   const common = useTranslations("Common");
 
-  const { isOpen, closeModal } = useModal();
+  const { isOpen, closeModal } = useModalActions();
   const { state, execute } = useFetch();
 
   async function onSubmit(

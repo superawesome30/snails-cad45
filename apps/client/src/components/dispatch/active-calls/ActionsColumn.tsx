@@ -2,7 +2,7 @@ import { Button } from "@snailycad/ui";
 import { useActiveDispatchers } from "hooks/realtime/useActiveDispatchers";
 import { useFeatureEnabled } from "hooks/useFeatureEnabled";
 import type { Full911Call } from "state/dispatch/dispatchState";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { usePermission } from "hooks/usePermission";
 import { useRouter } from "next/router";
 import { defaultPermissions } from "@snailycad/permissions";
@@ -27,7 +27,7 @@ export function ActiveCallsActionsColumn({
   call,
   handleAssignUnassignToCall,
 }: Props) {
-  const { openModal } = useModal();
+  const { openModal } = useModalActions();
   const { TOW } = useFeatureEnabled();
   const { hasActiveDispatchers } = useActiveDispatchers();
   const { hasPermissions } = usePermission();

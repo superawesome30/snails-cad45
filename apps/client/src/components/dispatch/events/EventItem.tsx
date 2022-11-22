@@ -1,6 +1,6 @@
 import * as React from "react";
 import type { AssignedUnit, Call911Event, IncidentEvent, LeoIncident } from "@snailycad/types";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { useHoverDirty } from "react-use";
 import useFetch from "lib/useFetch";
 import { useTranslations } from "next-intl";
@@ -33,7 +33,7 @@ export function EventItem<T extends IncidentEvent | Call911Event>({
 }: EventItemProps<T>) {
   const [isEditable, setIsEditable] = React.useState(!disabled);
 
-  const { openModal, closeModal } = useModal();
+  const { openModal, closeModal } = useModalActions();
   const actionsRef = React.useRef<HTMLLIElement>(null);
   const isHovering = useHoverDirty(actionsRef);
   const t = useTranslations("Calls");

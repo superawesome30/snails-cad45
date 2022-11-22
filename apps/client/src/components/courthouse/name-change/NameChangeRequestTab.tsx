@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Button } from "@snailycad/ui";
 import { TabsContent } from "components/shared/TabList";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { useTranslations } from "next-intl";
 import { ModalIds } from "types/ModalIds";
 import { Table, useTableState } from "components/shared/Table";
@@ -18,7 +18,7 @@ interface Props {
 export function NameChangeRequestTab(props: Props) {
   const [requests, setRequests] = React.useState(props.requests);
   const t = useTranslations("Courthouse");
-  const { openModal } = useModal();
+  const { openModal } = useModalActions();
   const common = useTranslations("Common");
   const tableState = useTableState();
 

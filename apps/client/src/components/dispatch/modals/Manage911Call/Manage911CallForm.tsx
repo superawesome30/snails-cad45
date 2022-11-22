@@ -16,7 +16,7 @@ import type { Full911Call } from "state/dispatch/dispatchState";
 import { Select } from "components/form/Select";
 import { useTranslations } from "next-intl";
 import { useCall911State } from "state/dispatch/call911State";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { AssignedUnitsTable } from "./AssignedUnitsTable";
 import { useFeatureEnabled } from "hooks/useFeatureEnabled";
 import { AddressPostalSelect } from "components/form/select/PostalSelect";
@@ -35,7 +35,7 @@ export function Manage911CallForm({ call, isDisabled, setShowAlert, handleClose 
   const t = useTranslations("Calls");
   const { execute, state } = useFetch();
   const { setCalls, calls } = useCall911State();
-  const { closeModal } = useModal();
+  const { closeModal } = useModalActions();
   const { DIVISIONS } = useFeatureEnabled();
 
   const validate = handleValidate(CALL_911_SCHEMA);

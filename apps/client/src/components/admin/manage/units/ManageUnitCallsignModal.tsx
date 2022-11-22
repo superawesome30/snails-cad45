@@ -13,7 +13,7 @@ import useFetch from "lib/useFetch";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/router";
 import type { Unit } from "src/pages/admin/manage/units";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 
 interface Props {
@@ -22,7 +22,7 @@ interface Props {
 
 export function ManageUnitCallsignModal({ unit }: Props) {
   const t = useTranslations();
-  const { isOpen, closeModal } = useModal();
+  const { isOpen, closeModal } = useModalActions();
   const { state, execute } = useFetch();
   const router = useRouter();
 

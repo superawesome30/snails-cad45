@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { X } from "react-bootstrap-icons";
-import { useModal } from "state/modal-state";
+import { useModalState } from "state/modal-state";
 import { classNames } from "lib/classNames";
 
 export interface ModalProps {
@@ -25,7 +25,7 @@ export function Modal({
   dialogClassName,
   onClose,
 }: ModalProps) {
-  const { canBeClosed } = useModal();
+  const canBeClosed = useModalState((state) => state.canBeClosed);
 
   const handleClose = React.useCallback(() => {
     if (!canBeClosed) return;

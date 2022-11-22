@@ -2,7 +2,7 @@ import { TabsContent } from "components/shared/TabList";
 import { useTranslations } from "use-intl";
 import { Button } from "@snailycad/ui";
 import { useBusinessState } from "state/businessState";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import type { RegisteredVehicle } from "@snailycad/types";
 import useFetch from "lib/useFetch";
@@ -15,7 +15,7 @@ import { useTemporaryItem } from "hooks/shared/useTemporaryItem";
 
 export function VehiclesTab() {
   const { state, execute } = useFetch();
-  const { openModal, closeModal } = useModal();
+  const { openModal, closeModal } = useModalActions();
   const common = useTranslations("Common");
   const bus = useTranslations("Business");
   const t = useTranslations();

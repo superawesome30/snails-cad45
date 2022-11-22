@@ -2,7 +2,7 @@ import * as React from "react";
 import { Button } from "@snailycad/ui";
 import type { Weapon } from "@snailycad/types";
 import { ModalIds } from "types/ModalIds";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { RegisterWeaponModal } from "./RegisterWeaponModal";
 import { useTranslations } from "use-intl";
 import { AlertModal } from "components/modal/AlertModal";
@@ -19,7 +19,7 @@ import { SearchArea } from "components/shared/search/search-area";
 export function WeaponsCard(props: Pick<GetCitizenWeaponsData, "weapons">) {
   const [search, setSearch] = React.useState("");
 
-  const { openModal, closeModal } = useModal();
+  const { openModal, closeModal } = useModalActions();
   const { state, execute } = useFetch();
   const common = useTranslations("Common");
   const t = useTranslations("Weapons");

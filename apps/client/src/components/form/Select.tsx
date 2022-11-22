@@ -6,8 +6,7 @@ import ReactSelect, {
   ActionMeta,
 } from "react-select";
 import { useAuth } from "context/AuthContext";
-import { useModal } from "state/modal-state";
-
+import { useModalState } from "state/modal-state";
 import { MultiValueContainerContextMenu } from "./select/MultiValueContainerContextMenu";
 import { MultiValueContainerPenalCode } from "./select/MultiValueContainerPenalCode";
 import { MultiValueContainerDescription } from "./select/MultiValueContainerDescription";
@@ -38,7 +37,7 @@ interface Props<Value extends SelectValue = SelectValue<any>>
 export function Select({ name, onChange, ...rest }: Props) {
   const { user } = useAuth();
   const common = useTranslations("Common");
-  const { canBeClosed } = useModal();
+  const canBeClosed = useModalState((state) => state.canBeClosed);
 
   const value =
     typeof rest.value === "string" ? rest.values.find((v) => v.value === rest.value) : rest.value;

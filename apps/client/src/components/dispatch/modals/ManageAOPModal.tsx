@@ -1,7 +1,7 @@
 import { Loader, Button, TextField } from "@snailycad/ui";
 import { Modal } from "components/modal/Modal";
 import { useAuth } from "context/AuthContext";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { Form, Formik } from "formik";
 import useFetch from "lib/useFetch";
 import { ModalIds } from "types/ModalIds";
@@ -10,7 +10,7 @@ import type { PostDispatchAopData } from "@snailycad/types/api";
 
 export function ManageAOPModal() {
   const { state, execute } = useFetch();
-  const { closeModal, isOpen } = useModal();
+  const { closeModal, isOpen } = useModalActions();
   const { cad, setCad } = useAuth();
 
   const t = useTranslations("Leo");

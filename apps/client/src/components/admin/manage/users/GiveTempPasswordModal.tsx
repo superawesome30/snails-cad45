@@ -1,6 +1,6 @@
 import * as React from "react";
 import useFetch from "lib/useFetch";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import type { User } from "@snailycad/types";
 import { ModalIds } from "types/ModalIds";
 import { Modal } from "components/modal/Modal";
@@ -14,7 +14,7 @@ interface Props {
 
 export function GiveTempPasswordModal({ user }: Props) {
   const { state, execute } = useFetch();
-  const { isOpen, closeModal } = useModal();
+  const { isOpen, closeModal } = useModalActions();
   const t = useTranslations("Management");
 
   const [result, setResult] = React.useState<string | null>(null);

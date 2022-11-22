@@ -12,7 +12,7 @@ import { FullDate } from "components/shared/FullDate";
 import { Button } from "@snailycad/ui";
 import { ImportModal } from "components/admin/import/ImportModal";
 import { ModalIds } from "types/ModalIds";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { useAsyncTable } from "hooks/shared/table/use-async-table";
 import type { GetImportVehiclesData, PostImportVehiclesData } from "@snailycad/types/api";
 import { AlertModal } from "components/modal/AlertModal";
@@ -31,7 +31,7 @@ export default function ImportVehiclesPage({ data }: Props) {
   const t = useTranslations("Management");
   const common = useTranslations("Common");
   const veh = useTranslations("Vehicles");
-  const { closeModal, openModal } = useModal();
+  const { closeModal, openModal } = useModalActions();
   const { state, execute } = useFetch();
   const { hasPermissions } = usePermission();
   const hasDeletePermissions = hasPermissions([Permissions.DeleteRegisteredVehicles], true);

@@ -3,7 +3,7 @@ import { useTranslations } from "use-intl";
 import { Button } from "@snailycad/ui";
 import type { ActiveOfficer } from "state/leoState";
 import { ManageUnitModal } from "./modals/ManageUnit";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { useActiveOfficers } from "hooks/realtime/useActiveOfficers";
 import { useRouter } from "next/router";
@@ -48,7 +48,7 @@ function ActiveOfficers({ initialOfficers }: Props) {
 
   const t = useTranslations("Leo");
   const common = useTranslations("Common");
-  const { openModal } = useModal();
+  const { openModal } = useModalActions();
   const { generateCallsign } = useGenerateCallsign();
   const { user } = useAuth();
 

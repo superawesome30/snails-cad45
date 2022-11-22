@@ -3,7 +3,7 @@ import { Loader, Button } from "@snailycad/ui";
 import { FormField } from "components/form/FormField";
 import { Select, SelectValue } from "components/form/Select";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { Form, Formik } from "formik";
 import { handleValidate } from "lib/handleValidate";
 import useFetch from "lib/useFetch";
@@ -22,7 +22,7 @@ interface Props {
 export function LinkCallToIncidentModal({ incidents, onSave, call }: Props) {
   const common = useTranslations("Common");
   const t = useTranslations("Leo");
-  const { isOpen, closeModal } = useModal();
+  const { isOpen, closeModal } = useModalActions();
   const { state, execute } = useFetch();
 
   async function onSubmit(values: typeof INITIAL_VALUES) {

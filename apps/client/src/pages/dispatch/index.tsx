@@ -18,7 +18,7 @@ import { Title } from "components/shared/Title";
 import { CombinedLeoUnit, EmsFdDeputy, Officer, ShouldDoType, ValueType } from "@snailycad/types";
 import { useFeatureEnabled } from "hooks/useFeatureEnabled";
 import { ModalIds } from "types/ModalIds";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { Permissions } from "@snailycad/permissions";
 import { useLoadValuesClientSide } from "hooks/useLoadValuesClientSide";
 import type { Get911CallsData, GetBolosData, GetDispatchData } from "@snailycad/types/api";
@@ -83,7 +83,7 @@ export default function DispatchDashboard(props: DispatchPageProps) {
   const panic = usePanicButton();
 
   const { ACTIVE_INCIDENTS } = useFeatureEnabled();
-  const { isOpen } = useModal();
+  const { isOpen } = useModalActions();
 
   const activeOfficers = React.useMemo(
     () => [...props.officers].filter(activeFilter),

@@ -3,7 +3,7 @@ import { Loader, Button } from "@snailycad/ui";
 import { FormField } from "components/form/FormField";
 import { Select } from "components/form/Select";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { Form, Formik } from "formik";
 import { handleValidate } from "lib/handleValidate";
 import useFetch from "lib/useFetch";
@@ -16,7 +16,7 @@ import type { PutLeoCallsignData } from "@snailycad/types/api";
 
 export function SwitchDivisionCallsignModal() {
   const { activeOfficer, setActiveOfficer } = useLeoState();
-  const { isOpen, closeModal } = useModal();
+  const { isOpen, closeModal } = useModalActions();
   const common = useTranslations("Common");
   const t = useTranslations("Leo");
   const { generateCallsign } = useGenerateCallsign();

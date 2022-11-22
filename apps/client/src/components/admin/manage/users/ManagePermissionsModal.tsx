@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { useTranslations } from "next-intl";
 import { ModalIds } from "types/ModalIds";
 import {
@@ -68,7 +68,7 @@ export function ManagePermissionsModal({ user, onUpdate, isReadOnly }: Props) {
 
   const t = useTranslations("Management");
   const common = useTranslations("Common");
-  const { closeModal, isOpen } = useModal();
+  const { closeModal, isOpen } = useModalActions();
   const userPermissions = getPermissions(user);
   const { state, execute } = useFetch();
 

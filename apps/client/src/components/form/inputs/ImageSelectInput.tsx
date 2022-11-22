@@ -3,7 +3,7 @@ import { Input, Button } from "@snailycad/ui";
 import { FormikHelpers, useFormikContext } from "formik";
 import { useTranslations } from "next-intl";
 import { FormField } from "../FormField";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { CropImageModal } from "components/modal/CropImageModal";
 import { AllowedFileExtension, allowedFileExtensions, IMAGES_REGEX } from "@snailycad/config";
@@ -20,7 +20,7 @@ export function ImageSelectInput({ label, hideLabel, valueKey = "image", image, 
   const [useURL, setUseURL] = React.useState(false);
   const { errors, values, setFieldValue, handleChange } = useFormikContext<any>();
   const common = useTranslations("Common");
-  const { openModal, closeModal, isOpen } = useModal();
+  const { openModal, closeModal, isOpen } = useModalActions();
 
   function onCropSuccess(url: Blob, filename: string) {
     setImage(new File([url], filename, { type: url.type }));

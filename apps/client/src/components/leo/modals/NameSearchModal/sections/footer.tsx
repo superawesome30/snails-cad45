@@ -1,7 +1,7 @@
 import { Button, Loader } from "@snailycad/ui";
 import { useFeatureEnabled } from "hooks/useFeatureEnabled";
 import { classNames } from "lib/classNames";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { useNameSearch } from "state/search/name-search-state";
 import { ModalIds } from "types/ModalIds";
 import { useTranslations } from "use-intl";
@@ -16,7 +16,7 @@ export function NameSearchFooter(props: Props) {
   const currentResult = useNameSearch((state) => state.currentResult);
   const { CREATE_USER_CITIZEN_LEO } = useFeatureEnabled();
   const t = useTranslations();
-  const { closeModal } = useModal();
+  const { closeModal } = useModalActions();
 
   const showActions = (currentResult || CREATE_USER_CITIZEN_LEO) && props.isLeo;
 

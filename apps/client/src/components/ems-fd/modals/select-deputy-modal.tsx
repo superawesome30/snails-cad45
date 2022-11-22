@@ -3,7 +3,7 @@ import { Loader, Button, AsyncListSearchField, Item } from "@snailycad/ui";
 import { FormField } from "components/form/FormField";
 import { Select } from "components/form/Select";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { Form, Formik, FormikHelpers } from "formik";
 import { handleValidate } from "lib/handleValidate";
 import useFetch from "lib/useFetch";
@@ -19,7 +19,7 @@ import type { EmergencyVehicleValue } from "@snailycad/types";
 
 export function SelectDeputyModal() {
   const { deputies, setActiveDeputy } = useEmsFdState();
-  const { isOpen, closeModal } = useModal();
+  const { isOpen, closeModal } = useModalActions();
   const common = useTranslations("Common");
   const t = useTranslations("Ems");
   const { generateCallsign } = useGenerateCallsign();

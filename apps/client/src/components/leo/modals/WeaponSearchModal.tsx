@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Loader, Button, AsyncListSearchField, Item } from "@snailycad/ui";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { Form, Formik } from "formik";
 import useFetch from "lib/useFetch";
 import { ModalIds } from "types/ModalIds";
@@ -18,7 +18,7 @@ interface Props {
 }
 
 export function WeaponSearchModal({ id = ModalIds.WeaponSearch }: Props) {
-  const { isOpen, openModal, closeModal } = useModal();
+  const { isOpen, openModal, closeModal } = useModalActions();
   const common = useTranslations("Common");
   const wT = useTranslations("Weapons");
   const t = useTranslations("Leo");

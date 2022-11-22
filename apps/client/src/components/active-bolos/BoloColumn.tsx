@@ -2,7 +2,7 @@ import * as React from "react";
 import { Bolo, BoloType } from "@snailycad/types";
 import { useTranslations } from "next-intl";
 import { useVirtualizer } from "@tanstack/react-virtual";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { BoloItem } from "./BoloItem";
 
@@ -19,7 +19,7 @@ const ESTIMATED_SIZES = {
 };
 
 export function BoloColumn({ bolos, boloType, setTempBolo }: Props) {
-  const { openModal } = useModal();
+  const { openModal } = useModalActions();
   const t = useTranslations("Bolos");
 
   const parentRef = React.useRef<HTMLDivElement | null>(null);

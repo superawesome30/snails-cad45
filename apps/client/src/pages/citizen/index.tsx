@@ -8,7 +8,7 @@ import { getSessionUser } from "lib/auth";
 import { getTranslations } from "lib/getTranslation";
 import { Button, buttonVariants } from "@snailycad/ui";
 import { ModalIds } from "types/ModalIds";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { requestAll } from "lib/utils";
 import { useFeatureEnabled } from "hooks/useFeatureEnabled";
 import { useAreaOfPlay } from "hooks/global/useAreaOfPlay";
@@ -38,7 +38,7 @@ export default function CitizenPage({ citizens }: Props) {
   const t = useTranslations("Citizen");
   const { TOW, TAXI, WEAPON_REGISTRATION, CALLS_911 } = useFeatureEnabled();
 
-  const { openModal, closeModal } = useModal();
+  const { openModal, closeModal } = useModalActions();
   const [modal, setModal] = React.useState<string | null>(null);
   const { showAop, areaOfPlay } = useAreaOfPlay();
 

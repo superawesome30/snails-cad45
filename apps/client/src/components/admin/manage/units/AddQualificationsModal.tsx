@@ -11,7 +11,7 @@ import { useValues } from "context/ValuesContext";
 import { Form, Formik } from "formik";
 import useFetch from "lib/useFetch";
 import { useTranslations } from "next-intl";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 
 interface Props {
@@ -22,7 +22,7 @@ interface Props {
 export function AddQualificationsModal({ unit, setUnit }: Props) {
   const common = useTranslations("Common");
   const t = useTranslations();
-  const { isOpen, closeModal, getPayload } = useModal();
+  const { isOpen, closeModal, getPayload } = useModalActions();
   const { state, execute } = useFetch();
   const { qualification } = useValues();
   const type = getPayload<QualificationValueType>(ModalIds.ManageUnitQualifications);

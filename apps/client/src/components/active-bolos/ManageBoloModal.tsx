@@ -1,7 +1,7 @@
 import { FormField } from "components/form/FormField";
 import { AsyncListSearchField, Button, Item, Loader, TextField } from "@snailycad/ui";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { Form, Formik } from "formik";
 import { handleValidate } from "lib/handleValidate";
 import useFetch from "lib/useFetch";
@@ -24,7 +24,7 @@ interface Props {
 
 export function ManageBoloModal({ onClose, bolo }: Props) {
   const common = useTranslations("Common");
-  const { isOpen, closeModal } = useModal();
+  const { isOpen, closeModal } = useModalActions();
   const { state, execute } = useFetch();
   const { bolos, setBolos } = useDispatchState();
   const t = useTranslations("Bolos");

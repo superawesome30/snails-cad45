@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Loader, Button, AsyncListSearchField, Item } from "@snailycad/ui";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { Form, Formik } from "formik";
 import useFetch from "lib/useFetch";
 import { ModalIds } from "types/ModalIds";
@@ -11,7 +11,7 @@ import { formatCitizenAddress } from "lib/utils";
 import type { PostDispatchAddressSearchData } from "@snailycad/types/api";
 
 export function AddressSearchModal() {
-  const { isOpen, closeModal, openModal } = useModal();
+  const { isOpen, closeModal, openModal } = useModalActions();
   const common = useTranslations("Common");
   const t = useTranslations("Leo");
   const { state, execute } = useFetch();

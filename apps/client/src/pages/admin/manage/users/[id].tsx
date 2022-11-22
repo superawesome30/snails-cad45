@@ -25,7 +25,7 @@ import { requestAll } from "lib/utils";
 import { Title } from "components/shared/Title";
 import { ManagePermissionsModal } from "components/admin/manage/users/ManagePermissionsModal";
 import { ModalIds } from "types/ModalIds";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { usePermission, Permissions } from "hooks/usePermission";
 import dynamic from "next/dynamic";
 import { SettingsFormField } from "components/form/SettingsFormField";
@@ -55,7 +55,7 @@ export default function ManageCitizens(props: Props) {
   const common = useTranslations("Common");
   const t = useTranslations("Management");
   const { user: session } = useAuth();
-  const { openModal, closeModal } = useModal();
+  const { openModal, closeModal } = useModalActions();
   const { hasPermissions } = usePermission();
   const { USER_API_TOKENS } = useFeatureEnabled();
 

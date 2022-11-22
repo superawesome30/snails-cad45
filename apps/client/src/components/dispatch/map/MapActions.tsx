@@ -2,7 +2,7 @@ import { createPortal } from "react-dom";
 import { usePortal } from "@casper124578/useful";
 import { Button } from "@snailycad/ui";
 import { useTranslations } from "next-intl";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { MapItem, useDispatchMapState } from "state/mapState";
 import { Permissions, usePermission } from "hooks/usePermission";
@@ -11,7 +11,7 @@ import { Rank } from "@snailycad/types";
 export function MapActions() {
   const t = useTranslations();
   const portalRef = usePortal("MapActions");
-  const { openModal } = useModal();
+  const { openModal } = useModalActions();
   const mapState = useDispatchMapState();
 
   const { hasPermissions } = usePermission();

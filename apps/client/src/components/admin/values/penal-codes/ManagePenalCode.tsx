@@ -5,7 +5,7 @@ import { Modal } from "components/modal/Modal";
 import { Form, Formik, useFormikContext } from "formik";
 import { handleValidate } from "lib/handleValidate";
 import useFetch from "lib/useFetch";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { PenalCode, PenalCodeGroup, ValueType, PenalCodeType } from "@snailycad/types";
 import { useTranslations } from "use-intl";
 import { FormRow } from "components/form/FormRow";
@@ -26,7 +26,7 @@ interface Props {
 
 export function ManagePenalCode({ onCreate, onUpdate, groups, type, penalCode }: Props) {
   const { state, execute } = useFetch();
-  const { isOpen, closeModal } = useModal();
+  const { isOpen, closeModal } = useModalActions();
   const t = useTranslations(type);
   const common = useTranslations("Common");
   const { LEO_BAIL } = useFeatureEnabled();

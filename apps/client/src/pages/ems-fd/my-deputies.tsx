@@ -3,7 +3,7 @@ import { useTranslations } from "use-intl";
 import dynamic from "next/dynamic";
 import { Button } from "@snailycad/ui";
 import { Layout } from "components/Layout";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { getSessionUser } from "lib/auth";
 import { getTranslations } from "lib/getTranslation";
 import type { GetServerSideProps } from "next";
@@ -34,7 +34,7 @@ interface Props {
 export default function MyDeputies({ deputies: data }: Props) {
   const common = useTranslations("Common");
   const t = useTranslations();
-  const { openModal, closeModal } = useModal();
+  const { openModal, closeModal } = useModalActions();
   const { state, execute } = useFetch();
   const { generateCallsign } = useGenerateCallsign();
   const { makeImageUrl } = useImageUrl();

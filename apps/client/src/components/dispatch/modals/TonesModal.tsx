@@ -1,7 +1,7 @@
 import { Loader, Button, TextField } from "@snailycad/ui";
 import { FormField } from "components/form/FormField";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { Form, Formik } from "formik";
 import useFetch from "lib/useFetch";
 import { ModalIds } from "types/ModalIds";
@@ -19,7 +19,7 @@ interface Props {
 
 export function TonesModal({ types }: Props) {
   const { state, execute } = useFetch();
-  const { closeModal, isOpen } = useModal();
+  const { closeModal, isOpen } = useModalActions();
 
   const t = useTranslations("Leo");
   const common = useTranslations("Common");

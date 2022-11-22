@@ -3,7 +3,7 @@ import { Loader, Input, Button, TextField, AsyncListSearchField, Item } from "@s
 import { FormField } from "components/form/FormField";
 import { Select } from "components/form/Select";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { useValues } from "context/ValuesContext";
 import { Form, Formik, useFormikContext } from "formik";
 import { handleValidate } from "lib/handleValidate";
@@ -27,7 +27,7 @@ interface Props {
 export function DispatchCallTowModal({ call }: Props) {
   const common = useTranslations("Common");
   const t = useTranslations();
-  const { isOpen, closeModal, getPayload } = useModal();
+  const { isOpen, closeModal, getPayload } = useModalActions();
   const { state, execute } = useFetch();
   const { activeOfficer, userOfficers } = useLeoState();
   const { activeDeputy, deputies } = useEmsFdState();

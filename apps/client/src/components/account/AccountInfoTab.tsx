@@ -4,14 +4,16 @@ import { Form, Formik } from "formik";
 import { useAuth } from "context/AuthContext";
 import { FormRow } from "components/form/FormRow";
 import { Button, TextField } from "@snailycad/ui";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { ManagePermissionsModal } from "components/admin/manage/users/ManagePermissionsModal";
 
 export function AccountInfoTab() {
   const { user } = useAuth();
   const t = useTranslations();
-  const { openModal } = useModal();
+  const { openModal } = useModalActions();
+
+  console.log({ openModal });
 
   const INITIAL_VALUES = {
     ...(user ?? {}),

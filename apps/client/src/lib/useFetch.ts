@@ -4,7 +4,7 @@ import { handleRequest } from "./fetch";
 import { useTranslations } from "use-intl";
 import type { FormikHelpers } from "formik";
 import { toastMessage } from "./toastMessage";
-import { useModal } from "../state/modal-state";
+import { useModalActions } from "../state/modal-state";
 import { ModalIds } from "../types/ModalIds";
 import { useAuth } from "../context/AuthContext";
 import { getNextI18nConfig } from "./i18n/getNextI18nConfig";
@@ -40,7 +40,7 @@ interface Return<Data> {
 
 export default function useFetch({ overwriteState }: UseFetchOptions = { overwriteState: null }) {
   const [state, setState] = React.useState<State | null>(null);
-  const { openModal } = useModal();
+  const { openModal } = useModalActions();
   const { user } = useAuth();
 
   const t = useTranslations("Errors");

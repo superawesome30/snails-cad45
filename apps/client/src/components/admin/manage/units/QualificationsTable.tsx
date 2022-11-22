@@ -5,7 +5,7 @@ import { AlertModal } from "components/modal/AlertModal";
 import { Table, useTableState } from "components/shared/Table";
 import useFetch from "lib/useFetch";
 import { useTranslations } from "next-intl";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { AddQualificationsModal } from "./AddQualificationsModal";
 import { FullDate } from "components/shared/FullDate";
@@ -24,7 +24,7 @@ interface Props {
 
 export function QualificationsTable({ setUnit, unit }: Props) {
   const t = useTranslations("Leo");
-  const { openModal } = useModal();
+  const { openModal } = useModalActions();
 
   const awards = unit.qualifications.filter(
     (v) => v.qualification.qualificationType === QualificationValueType.AWARD,
@@ -90,7 +90,7 @@ function QualificationAwardsTable({ unit, setUnit }: Props) {
   const tableState = useTableState();
   const t = useTranslations("Leo");
   const common = useTranslations("Common");
-  const { openModal, closeModal } = useModal();
+  const { openModal, closeModal } = useModalActions();
   const { state, execute } = useFetch();
 
   function handleDeleteClick(qualification: UnitQualification) {

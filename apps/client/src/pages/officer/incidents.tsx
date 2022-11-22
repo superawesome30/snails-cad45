@@ -5,7 +5,7 @@ import { getTranslations } from "lib/getTranslation";
 import { makeUnitName, requestAll, yesOrNoText } from "lib/utils";
 import type { GetServerSideProps } from "next";
 import { useTranslations } from "use-intl";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { Button } from "@snailycad/ui";
 import { ModalIds } from "types/ModalIds";
 import { useGenerateCallsign } from "hooks/useGenerateCallsign";
@@ -66,7 +66,7 @@ export default function LeoIncidents({
   const tableState = useTableState({ pagination: asyncTable.pagination });
   const t = useTranslations("Leo");
   const common = useTranslations("Common");
-  const { openModal, closeModal } = useModal();
+  const { openModal, closeModal } = useModalActions();
   const dispatchState = useDispatchState();
   const { setActiveOfficer } = useLeoState();
   const { generateCallsign } = useGenerateCallsign();

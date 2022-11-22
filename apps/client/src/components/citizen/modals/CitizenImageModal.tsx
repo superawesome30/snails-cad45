@@ -1,6 +1,6 @@
 import type { Citizen } from "@snailycad/types";
 import { Modal } from "components/modal/Modal";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { useImageUrl } from "hooks/useImageUrl";
 import { ModalIds } from "types/ModalIds";
 import Image from "next/image";
@@ -10,7 +10,7 @@ interface Props {
 }
 
 export function CitizenImageModal({ citizen }: Props) {
-  const { isOpen, closeModal } = useModal();
+  const { isOpen, closeModal } = useModalActions();
   const { makeImageUrl } = useImageUrl();
 
   return (

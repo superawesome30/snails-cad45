@@ -6,7 +6,7 @@ import { Button, buttonVariants } from "@snailycad/ui";
 import { useGenerateCallsign } from "hooks/useGenerateCallsign";
 import { Table, useTableState } from "components/shared/Table";
 import { TabsContent } from "components/shared/TabList";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { ModalIds } from "types/ModalIds";
 import { ManageUnitCallsignModal } from "./ManageUnitCallsignModal";
 import { useTemporaryItem } from "hooks/shared/useTemporaryItem";
@@ -24,7 +24,7 @@ export function CallsignsTab({ search, units }: Props) {
   const t = useTranslations();
   const common = useTranslations("Common");
   const { generateCallsign } = useGenerateCallsign();
-  const { openModal } = useModal();
+  const { openModal } = useModalActions();
   const tableState = useTableState({ search: { value: search } });
   const hasViewUsersPermissions = hasPermissions([Permissions.ViewUsers], true);
 

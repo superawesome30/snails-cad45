@@ -6,7 +6,7 @@ import { Layout } from "components/Layout";
 import { getSessionUser } from "lib/auth";
 import { getTranslations } from "lib/getTranslation";
 import type { GetServerSideProps } from "next";
-import { useModal } from "state/modal-state";
+import { useModalActions } from "state/modal-state";
 import { type AnyValue, ValueType, Rank } from "@snailycad/types";
 import useFetch from "lib/useFetch";
 import { AdminLayout } from "components/admin/AdminLayout";
@@ -74,7 +74,7 @@ export default function ValuePath({ pathValues: { totalCount, type, values: data
   const [tempValue, valueState] = useTemporaryItem(asyncTable.items);
   const { state, execute } = useFetch();
 
-  const { isOpen, openModal, closeModal } = useModal();
+  const { isOpen, openModal, closeModal } = useModalActions();
   const t = useTranslations("Values");
   const typeT = useTranslations(type);
   const common = useTranslations("Common");
