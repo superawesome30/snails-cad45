@@ -13,7 +13,7 @@ import { useAuth } from "context/AuthContext";
 import { CombinedLeoUnit, StatusViewMode, Officer } from "@snailycad/types";
 import { Filter } from "react-bootstrap-icons";
 import { useActiveDispatchers } from "hooks/realtime/useActiveDispatchers";
-import { useTableState, Table } from "components/shared/Table";
+import { useTableState, Table, useAsyncTable } from "components/shared/Table";
 import { useFeatureEnabled } from "hooks/useFeatureEnabled";
 import { UnitRadioChannelModal } from "./active-units/UnitRadioChannelModal";
 import { ActiveUnitsSearch } from "./active-units/ActiveUnitsSearch";
@@ -42,7 +42,7 @@ function ActiveOfficers({ initialOfficers }: Props) {
     pagination: { pageSize: 12, totalDataCount: initialOfficers.length },
   });
 
-  const { activeOfficers: _activeOfficers } = useActiveOfficers();
+  const { activeOfficers: _activeOfficers, setActiveOfficers } = useActiveOfficers();
   const { activeIncidents } = useActiveIncidents();
   const active911Calls = useCall911State((state) => state.calls);
   const isMounted = useMounted();
@@ -54,9 +54,6 @@ function ActiveOfficers({ initialOfficers }: Props) {
   const { generateCallsign } = useGenerateCallsign();
   const { user } = useAuth();
 
-  const { hasActiveDispatchers } = useActiveDispatchers();
-  const { BADGE_NUMBERS, ACTIVE_INCIDENTS, RADIO_CHANNEL_MANAGEMENT, DIVISIONS } =
-    useFeatureEnabled();
   const { leoSearch, showLeoFilters, setShowFilters } = useActiveUnitsState(
     (state) => ({
       leoSearch: state.leoSearch,
@@ -65,6 +62,31 @@ function ActiveOfficers({ initialOfficers }: Props) {
     }),
     shallow,
   );
+
+  const asyncTable = useAsyncTable({
+    search: leoSearch,
+    totalCount: activeOfficers.length,
+    fetchOptions: {
+      path: "/leo/active-officers",
+      pageSize: 12,
+      // todo
+      onResponse: (data) => {
+        return {
+          data,
+          totalCount: data.length,
+        };
+      },
+    },
+  });
+
+  React.useEffect(() => {
+    setActiveOfficers(asyncTable.items);
+  }, [asyncTable.items]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const { hasActiveDispatchers } = useActiveDispatchers();
+  const { BADGE_NUMBERS, ACTIVE_INCIDENTS, RADIO_CHANNEL_MANAGEMENT, DIVISIONS } =
+    useFeatureEnabled();
+
   const { handleFilter } = useActiveUnitsFilter();
 
   const router = useRouter();
